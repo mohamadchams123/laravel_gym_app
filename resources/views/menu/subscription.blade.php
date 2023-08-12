@@ -1,9 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
-        <div class="flex font-semibold text-xl leading-tight m-5">
-            <x-nav-link active="true">
-                {{ __('Subscription') }}
-            </x-nav-link>
-        </div>
+        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+            {{ __('Subscription') }}
+        </h2>
     </x-slot>
 </x-app-layout>

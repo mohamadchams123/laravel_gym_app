@@ -1,16 +1,16 @@
 <x-app-layout>
     <x-slot name="header">
         <div class="flex font-semibold text-xl leading-tight">
-            <p class="m-5"><x-nav-link href="#todo">
+            <p><x-nav-link href="#todo">
                 {{ __('Exercices') }}
             </x-nav-link></p>
-            <p class="m-5"><x-nav-link href="#sh">
+            <p class="ml-5"><x-nav-link href="#sh">
                 {{ __('Shop') }}
             </x-nav-link></p>
-            <p class="m-5"><x-nav-link href="#sub">
+            <p class="ml-5"><x-nav-link href="#sub">
                 {{ __('Subscription') }}
             </x-nav-link></p>
-            <p class="m-5"><x-nav-link href="#cm">
+            <p class="ml-5"><x-nav-link href="#cm">
                 {{ __('Feedback') }}
             </x-nav-link></p>
         </div>
