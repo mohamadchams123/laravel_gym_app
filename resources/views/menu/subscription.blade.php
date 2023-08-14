@@ -35,17 +35,43 @@
                             @csrf
                             <button class="btn" type="submit">Unsubscribe</button>
                         </form>
+                        
                     @else
-                        <p>You are not subscribed.</p>
+                    <h1>Payment Details</h1>
+                        {!! Form::open(['route' => 'subscribe']) !!}
+<div class="form-group">
+    {!! Form::label('card_number', 'Card Number') !!}
+    {!! Form::text('card_number', null, ['class' => 'form-control', 'placeholder' => 'Enter card number']) !!}
+</div>
+
+<div class="form-group">
+    {!! Form::label('expiry_date', 'Expiry Date') !!}
+    {!! Form::text('expiry_date', null, ['class' => 'form-control', 'placeholder' => 'MM/YY']) !!}
+</div>
+
+<div class="form-group">
+    {!! Form::label('cvv', 'CVV') !!}
+    {!! Form::text('cvv', null, ['class' => 'form-control', 'placeholder' => 'Enter CVV']) !!}
+</div>
+
+<div class="form-group">
+    {!! Form::label('cardholder_name', 'Cardholder Name') !!}
+    {!! Form::text('cardholder_name', null, ['class' => 'form-control', 'placeholder' => 'Enter cardholder name']) !!}
+</div>
+{!! Form::close() !!}
                         <form action="{{ route('subscribe') }}" method="POST">
                             @csrf
                             <button class="btn" type="submit">Subscribe</button>
                         </form>
                     @endif
+                    
+
+
     </div>
     </div>
 </div>
 </div>
+
 </div>
 <script>
     document.querySelector('form').addEventListener('submit', function() {
@@ -56,3 +82,32 @@
 </html>
 
 </x-app-layout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
