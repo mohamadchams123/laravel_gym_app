@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Feedback;
 
 class MenuController extends Controller
 {
@@ -20,10 +21,10 @@ class MenuController extends Controller
     {
         return view('menu.subscription');
     }
-    public function feedback(User $user)
+    public function feedback()
     {
-        $feedbackMessages = $user->feedback; // This should be a collection of feedback items
-        return view('menu.feedback', ['feedbackMessages' => $feedbackMessages]);
+        $feedbacks = Feedback::all(); // Fetch the feedbacks from the database
+        return view('menu.feedback', ['feedbacks' => $feedbacks]);
     }
 
 

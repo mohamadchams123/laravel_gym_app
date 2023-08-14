@@ -1,4 +1,3 @@
-
 <style>
     .submit-button {
         display: inline-block;
@@ -13,17 +12,23 @@
     }
 
     /* Button hover effect */
-    .submit-button:hover{
+    .submit-button:hover {
         background-color: #0056b3;
     }
-    .ali::hover {
-        background-color: #0056b3;
-    }
+
+    /* Hidden div */
     .hidden-div {
-    display: none; /* Hide the div by default */
-    padding: 10px;
-    margin-top: 10px;
-  }
+        display: none;
+        padding: 10px;
+        margin-top: 10px;
+    }
+
+    /* Center the hidden div */
+    .hidden-div.flex {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 </style>
 
 <x-app-layout>
@@ -32,6 +37,7 @@
             {{ __('Feedback') }}
         </h2>
     </x-slot>
+    
     <div class="flex justify-center text-white">
         <form action="{{ route('feedback.store') }}" method="post" class="w-1/2">
             @csrf
@@ -45,26 +51,31 @@
             </div>
             <button type="submit" class="submit-button">Submit Feedback</button>
             <div style="display: flex; justify-content: center; align-items: center;">
-                <button  type="button" class="submit-button" id="showButton">Show Feedback</button>
+                <button type="button" class="submit-button" id="showButton">Show Feedbacks</button>
             </div>
-
         </form>
-        
     </div>
-    <div class="hidden-div bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg flex justify-center text-white">
-    @foreach ($feedbacks as $feedback)
-        <p>User ID: {{ $feedback->user_id }}</p>
-    @endforeach
-}
+    
+    <div class="hidden-div flex bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg text-white" style="display: none;">
+        @foreach ($feedbacks as $feedback)
+            <br>{{ $feedback->user->name }} : {{ $feedback->message }}
+        @endforeach
+    </div>
+    
+    <script>
+        const showButton = document.getElementById('showButton');
+        const hiddenDiv = document.querySelector('.hidden-div');
 
-</div>
-<script>
-    const showButton = document.getElementById('showButton');
-    const hiddenDiv = document.querySelector('.hidden-div'); // Use the class selector
+        let isHidden = true;
 
-    showButton.addEventListener('click', () => {
-        hiddenDiv.style.display = 'block'; // Show the hidden div
-    });
-</script>
+        showButton.addEventListener('click', () => {
+        if (isHidden) {
+            hiddenDiv.style.display = 'block';
+        } else {
+            hiddenDiv.style.display = 'none';
+        }
+            isHidden = !isHidden;
+        });
 
+    </script>
 </x-app-layout>
