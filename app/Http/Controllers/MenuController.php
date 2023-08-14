@@ -17,9 +17,9 @@ class MenuController extends Controller
     {
         return view('menu.shop');
     }
-    public function subscription()
+    public function subscription(User $user)
     {
-        return view('menu.subscription');
+        return view('menu.subscription' ,['user' => $user]);
     }
     public function feedback()
     {
