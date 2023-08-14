@@ -55,15 +55,22 @@
             </div>
         </form>
     </div>
-    
+    <div class="py-12">
+    <div class="max-w-2xl mx-auto sm:px-6 lg:px-8">
     <div class="hidden-div flex bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg text-white" style="display: none;">
     @if(!$feedbacks->isEmpty())
         @foreach ($feedbacks as $feedback)
-            <br>{{ $feedback->user->name }} : {{ $feedback->message }}
+        <div class="border-b mb-5">
+            <p class="text-xl font-semibold" style="color: #00a859;">{{ $feedback->user->name }}</p>
+            <p class="text-xs" style="color: #6c757d;">Posted {{ $feedback->created_at->diffForHumans() }}</p>
+            <p class="m-3 ml-0 text-gray-100">{{ $feedback->message }}</p>
+        </div>
         @endforeach
     @else
-    <p style="display: flex; justify-content: center; align-items: center;">There is no Feebacks!</p>
+    <p style="display: flex; justify-content: center; align-items: center;">There are no Feedbacks! Be the first one to participate.</p>
     @endif
+    </div>
+    </div>
     </div>
     
     <script>

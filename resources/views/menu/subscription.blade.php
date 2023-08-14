@@ -4,12 +4,6 @@
             {{ __('Subscription') }}
         </h2>
     </x-slot>
-    <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Subscription Page</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -17,34 +11,22 @@
             padding: 0;
             background-color: #f0f0f0;
         }
-        .container {
-            max-width: 600px;
-            margin: auto;
-            padding: 20px;
-            background-color: white;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            text-align: center;
-        }
-        .subscription {
-            text-align: center;
-            margin-top: 20px;
-        }
         .btn {
             display: inline-block;
             padding: 10px 20px;
-            background-color: #007bff;
+            background-color: #00a859;
             color: white;
             border: none;
             cursor: pointer;
         }
     </style>
-</head>
 <body>
-<div class="container">
-                        <h1>Subscription Page</h1>
-    <div class="subscription">
+<div class="p-12">
+<div class="max-w-2xl mx-auto sm:px-6 lg:px-8">
+<div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg text-center">
+    <div class="p-6 text-gray-900 dark:text-gray-100">
+    <h1>Subscription Page</h1>
+    <div>
                     @if ($user->subscription)
                         <p>You are subscribed!</p>
                         <p>Subscription Start Date: {{ $user->subscription_start_date }}</p>
@@ -61,6 +43,9 @@
                         </form>
                     @endif
     </div>
+    </div>
+</div>
+</div>
 </div>
 <script>
     document.querySelector('form').addEventListener('submit', function() {

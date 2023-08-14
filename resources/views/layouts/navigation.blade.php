@@ -30,6 +30,9 @@
                         </x-slot>
 
                         <x-slot name="content">
+                            <x-dropdown-link :href="route('dashboard')">
+                                {{ __('Home') }}
+                            </x-dropdown-link>
                             <x-dropdown-link :href="route('exercices')">
                                 {{ __('Exercices') }}
                             </x-dropdown-link>
