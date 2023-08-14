@@ -10,6 +10,22 @@
             html{
                 scroll-behavior:smooth;
             }
+        body {
+            margin: 0;
+            padding: 0;
+
+        }
+        
+        #background-container {
+            /* position: fixed; */
+            top: 0;
+            left: 0;
+            z-index: -1; /* Place behind other content */
+            background-image: url('./images/OIP.jpeg');
+            background-repeat: no-repeat;
+            background-attachment: fixed; /* Stay fixed while scrolling */
+            background-position: center;
+        }
         </style>
 
         <!-- Fonts -->
@@ -20,13 +36,13 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
+        <div class="min-h-screen bg-gray-100 dark:bg-gray-900" id="background-container">
             @include('layouts.navigation')
 
             @if (isset($header))
-                <header class="bg-white dark:bg-gray-800 shadow">
+                <header class=" shadow">
                     <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        {{ $header }}
+                       {{ $header }}
                     </div>
                 </header>
             @endif
@@ -35,6 +51,7 @@
             <main>
                 {{ $slot }}
             </main>
+
         </div>
     </body>
 </html>
