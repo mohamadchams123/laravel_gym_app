@@ -35,6 +35,8 @@
                     rows="5"></textarea>
             </div>
             <button type="submit" class="submit-button">Submit Feedback</button>
+            <button style="background-color: #007bff; color: #fff; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">Show Feedback</button>
+
         </form>
     </div>
 </x-app-layout>
