@@ -3,6 +3,7 @@
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FeedbackController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +29,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/shop', [MenuController::class, 'shop'])->name('shop');
     Route::get('/subscription', [MenuController::class, 'subscription'])->name('subscription');
     Route::get('/feedback', [MenuController::class, 'feedback'])->name('feedback');
+    Route::post('/feedback', [FeedbackController::class, 'store'])->name('feedback.store');
 });
 
 require __DIR__.'/auth.php';
