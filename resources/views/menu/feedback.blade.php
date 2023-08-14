@@ -1,3 +1,4 @@
+
 <style>
     .submit-button {
         display: inline-block;
@@ -12,9 +13,17 @@
     }
 
     /* Button hover effect */
-    .submit-button:hover {
+    .submit-button:hover{
         background-color: #0056b3;
     }
+    .ali::hover {
+        background-color: #0056b3;
+    }
+    .hidden-div {
+    display: none; /* Hide the div by default */
+    padding: 10px;
+    margin-top: 10px;
+  }
 </style>
 
 <x-app-layout>
@@ -35,8 +44,27 @@
                     rows="5"></textarea>
             </div>
             <button type="submit" class="submit-button">Submit Feedback</button>
-            <button style="background-color: #007bff; color: #fff; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">Show Feedback</button>
+            <div style="display: flex; justify-content: center; align-items: center;">
+                <button  type="button" class="submit-button" id="showButton">Show Feedback</button>
+            </div>
 
         </form>
+        
     </div>
+    <div class="hidden-div bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg flex justify-center text-white">
+    @foreach ($feedbacks as $feedback)
+        <p>User ID: {{ $feedback->user_id }}</p>
+    @endforeach
+}
+
+</div>
+<script>
+    const showButton = document.getElementById('showButton');
+    const hiddenDiv = document.querySelector('.hidden-div'); // Use the class selector
+
+    showButton.addEventListener('click', () => {
+        hiddenDiv.style.display = 'block'; // Show the hidden div
+    });
+</script>
+
 </x-app-layout>

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class MenuController extends Controller
 {
@@ -18,9 +20,11 @@ class MenuController extends Controller
     {
         return view('menu.subscription');
     }
-    public function feedback()
+    public function feedback(User $user)
     {
-        return view('menu.feedback');
+        $feedbackMessages = $user->feedback; // This should be a collection of feedback items
+        return view('menu.feedback', ['feedbackMessages' => $feedbackMessages]);
     }
-    
+
+
 }

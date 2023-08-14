@@ -44,7 +44,10 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
-    public function feedback(){
+    // User.php
+    public function feedback()
+    {
         return $this->hasMany(Feedback::class);
     }
+
 }
