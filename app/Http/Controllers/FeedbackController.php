@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\FeedbackController;
+// use App\Http\Controllers\FeedbackController;
 use Illuminate\Http\Request;
 use App\Models\Feedback;
 
