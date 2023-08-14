@@ -57,9 +57,13 @@
     </div>
     
     <div class="hidden-div flex bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg text-white" style="display: none;">
+    @if(!$feedbacks->isEmpty())
         @foreach ($feedbacks as $feedback)
             <br>{{ $feedback->user->name }} : {{ $feedback->message }}
         @endforeach
+    @else
+    <p style="display: flex; justify-content: center; align-items: center;">There is no Feebacks!</p>
+    @endif
     </div>
     
     <script>
