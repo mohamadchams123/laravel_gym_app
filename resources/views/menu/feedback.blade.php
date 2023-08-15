@@ -19,7 +19,7 @@
                         <div class="flex items-center gap-4">
                             <x-primary-button>{{ __('Submit Feedback') }}</x-primary-button>
                         </div>
-                        <div class="flex items-center gap-4">
+                        <div class="flex items-center gap-4 pb-6">
                             <x-primary-button type="button" id="showButton">{{ __('Show Feedbacks') }}</x-primary-button>
                         </div>
                     </form>
