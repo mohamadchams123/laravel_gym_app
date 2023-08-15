@@ -7,25 +7,21 @@
 
         <title>{{ config('app.name', 'Laravel') }}</title>
         <style>
-            html{
-                scroll-behavior:smooth;
+            html{ scroll-behavior:smooth; }
+            body {
+                margin: 0;
+                padding: 0;
             }
-        body {
-            margin: 0;
-            padding: 0;
-
-        }
-        
-        #background-container {
-            /* position: fixed; */
-            top: 0;
-            left: 0;
-            z-index: -1; /* Place behind other content */
-            background-image: url('./images/OIP.jpeg');
-            background-repeat: no-repeat;
-            background-attachment: fixed; /* Stay fixed while scrolling */
-            background-position: center;
-        }
+            #background-container {
+                /* position: fixed; */
+                top: 0;
+                left: 0;
+                z-index: -1; /* Place behind other content */
+                background-image: url('./images/OIP.jpeg');
+                background-repeat: no-repeat;
+                background-attachment: fixed; /* Stay fixed while scrolling */
+                background-position: center;
+            }
         </style>
 
         <!-- Fonts -->
