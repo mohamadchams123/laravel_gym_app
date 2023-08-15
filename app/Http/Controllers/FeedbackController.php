@@ -10,6 +10,11 @@ use Illuminate\Support\Facades\Redirect;
 
 class FeedbackController extends Controller
 {
+    public function show()
+    {
+        $feedbacks = Feedback::all(); // Fetch the feedbacks from the database
+        return view('menu.feedback', ['feedbacks' => $feedbacks]);
+    }
     public function store()
     {
         request()->validate([
@@ -20,6 +25,5 @@ class FeedbackController extends Controller
             'message'=>request('message')
         ]);
         return Redirect::back();
-
-}
+    }
 }
