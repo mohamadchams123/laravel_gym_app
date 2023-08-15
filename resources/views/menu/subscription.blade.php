@@ -40,7 +40,7 @@
                         </table>
                         </div>
                     @else
-                        <x-title class="text-xl mb-6">Get Your Membership Right Now</x-title>
+                        <x-title class="text-xl mb-6">Get Your 30 Days Membership Right Now</x-title>
                         <form action="{{ route('subscribe') }}" method="POST">
                         @csrf
                         <div class="mb-6 flex items-center">
