@@ -41,6 +41,8 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'subscription_start_date' => 'datetime',
+        'subscription_end_date' => 'datetime',
         'password' => 'hashed',
     ];
     // User.php
