@@ -33,7 +33,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/feedback', [FeedbackController::class, 'store'])->name('feedback.store');
     Route::get('/subscription', [SubscriptionController::class, 'show'])->name('subscription');
     Route::post('/subscribe', [SubscriptionController::class, 'subscribe'])->name('subscribe');
-    Route::post('/unsubscribe', [SubscriptionController::class, 'unsubscribe'])->name('unsubscribe');
+    // Route::post('/unsubscribe', [SubscriptionController::class, 'unsubscribe'])->name('unsubscribe');
     Route::delete('/unsubscribe', [SubscriptionController::class, 'unsubscribe'])->name('unsubscribe');
 });
 
