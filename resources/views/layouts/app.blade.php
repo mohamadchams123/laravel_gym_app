@@ -17,10 +17,11 @@
                 top: 0;
                 left: 0;
                 z-index: -1; /* Place behind other content */
-                background-image: url('./images/app-background.jpeg');
+                background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./images/app-background.jpeg');
                 background-repeat: no-repeat;
                 background-attachment: fixed; /* Stay fixed while scrolling */
                 background-position: center;
+                background-size: 100%;
             }
         </style>
 
