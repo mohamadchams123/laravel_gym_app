@@ -34,7 +34,7 @@
                                 {{ __('Home') }}
                             </x-dropdown-link>
                             <x-dropdown-link :href="route('exercices')">
-                                {{ __('Exercices') }}
+                                {{ __('Exercises') }}
                             </x-dropdown-link>
                             <x-dropdown-link :href="route('shop')">
                                 {{ __('Shop') }}
@@ -120,7 +120,7 @@
                         {{ __('Home') }}
                     </x-dropdown-link>
                     <x-dropdown-link :href="route('exercices')">
-                        {{ __('Exercices') }}
+                        {{ __('Exercises') }}
                     </x-dropdown-link>
                     <x-dropdown-link :href="route('shop')">
                         {{ __('Shop') }}

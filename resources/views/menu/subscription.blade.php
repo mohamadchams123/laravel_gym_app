@@ -54,16 +54,14 @@
                                    <tr>
                                         <td><x-input-label for="card_number" :value="__('Card Number')" /></td>
                                         <td>
-                                            <x-text-input type="text" id="card_number" name="card_number" placeholder="XXXX XXXX XXXX XXXX" class="m-1 block w-full"
-                                                        required pattern="\d{8}" maxlength="8" />
+                                            <x-text-input type="text" id="card_number" name="card_number" placeholder="XXXX XXXX XXXX XXXX" class="m-1 block w-full" required pattern="\d{8}" maxlength="8" />
                                             <x-input-error class="mt-2" :messages="$errors->get('card_number')" />
                                         </td>
                                     </tr>
                                     <tr>
                                         <td><x-input-label for="expiry_date" :value="__('Expiry Date')" /></td>
                                         <td>
-                                            <x-text-input type="text" id="expiry_date" name="expiry_date" placeholder="MM/YYYY" class="m-1 block w-full"
-                                                        required pattern="(0[1-9]|1[0-2])\/\d{4}" title="Format: MM/YYYY" />
+                                            <x-text-input type="text" id="expiry_date" name="expiry_date" placeholder="MM/YYYY" class="m-1 block w-full" required pattern="(0[1-9]|1[0-2])\/\d{4}" title="Format: MM/YYYY" />
                                             <x-input-error class="mt-2" :messages="$errors->get('expiry_date')" />
                                         </td>
                                     </tr>

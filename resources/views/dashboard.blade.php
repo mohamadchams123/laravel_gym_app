@@ -2,7 +2,7 @@
     <x-slot name="header">
         <div class="flex font-semibold text-xl leading-tight">
             <p><x-nav-link href="#todo">
-                {{ __('Exercices') }}
+                {{ __('Exercises') }}
             </x-nav-link></p>
             <p class="ml-5"><x-nav-link href="#sh">
                 {{ __('Shop') }}
@@ -23,7 +23,7 @@
                         <a href="{{route('exercices')}}">{{ __('Learn New Exercices') }}</a>
                     </h2> --}}
                     <p id="todo" class="mb-5"><x-nav-link class="font-semibold text-xl" href="{{route('exercices')}}">
-                        {{ __('# Learn New Exercices') }}
+                        {{ __('# Learn New Exercises') }}
                     </x-nav-link></p>
                     <p>Engaging in a diverse range of exercises at the gym offers a multitude of physical and mental benefits that contribute to overall well-being. Whether you're lifting weights, doing cardiovascular workouts, or practicing yoga, these exercises collectively provide a holistic approach to fitness.
                     Strength training exercises, such as weightlifting, help to build and tone muscles while enhancing bone density. This not only leads to improved physical appearance but also increases metabolic rate, allowing the body to burn more calories even at rest. Cardiovascular exercises like running, cycling, or swimming improve heart health, enhance lung capacity, and boost endurance. This cardiovascular conditioning contributes to a healthier cardiovascular system and aids in weight management.
