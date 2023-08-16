@@ -6,11 +6,29 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Carbon;
 use App\Models\UserCard;
+use Illuminate\Support\Facades\Auth;
+
 class SubscriptionController extends Controller
 {
+    public function checkSubscriptionStatus(User $user)
+    {
+        if ($user->subscription && $user->subscription_end_date <= now()) {
+            $this->userSubExpired($user);
+        }
+    }
+    protected function userSubExpired(User $user)
+    {
+        $user->userCards()->delete();
+        $user->update([
+            'subscription' => false,
+            'subscription_start_date' => null,
+            'subscription_end_date' => null,
+        ]);
+    }
     public function show()
     {
-        $user = User::find(auth()->user()->id); // Retrieve the authenticated user
+        $user = User::find(auth()->user()->id);
+        $this->checkSubscriptionStatus($user);
         return view('menu.subscription', compact('user'));
     }
     public function subscribe(Request $request)
@@ -23,7 +41,7 @@ class SubscriptionController extends Controller
             'cardholder_name' => 'required|string',
         ]);
         $subscriptionStartDate = Carbon::parse($request->input('subscription_start_date'));
-        $subscriptionEndDate = $subscriptionStartDate->copy()->addMonth(); 
+        $subscriptionEndDate = $subscriptionStartDate->copy()->addDays(30); 
         $user = User::find(auth()->user()->id);
         $user->update([
             'subscription' => true,
@@ -43,17 +61,12 @@ class SubscriptionController extends Controller
     public function unsubscribe(Request $request)
     {
         $user = User::find(auth()->user()->id);
-
-        // Delete the user's card information from the userCard table
         $user->userCards()->delete();
-
-        // Update user subscription status and dates
         $user->update([
             'subscription' => false,
             'subscription_start_date' => null,
             'subscription_end_date' => null,
         ]);
-
         return redirect()->route('subscription');
     }
 }
