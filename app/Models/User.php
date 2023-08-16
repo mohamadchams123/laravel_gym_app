@@ -50,5 +50,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(Feedback::class);
     }
+    public function userCards()
+{
+    return $this->hasMany(UserCard::class);
+}
+
 
 }

@@ -34,6 +34,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/subscription', [SubscriptionController::class, 'show'])->name('subscription');
     Route::post('/subscribe', [SubscriptionController::class, 'subscribe'])->name('subscribe');
     Route::post('/unsubscribe', [SubscriptionController::class, 'unsubscribe'])->name('unsubscribe');
+    Route::delete('/unsubscribe', [SubscriptionController::class, 'unsubscribe'])->name('unsubscribe');
 });
 
 require __DIR__.'/auth.php';
