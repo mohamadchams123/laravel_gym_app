@@ -1,10 +1,10 @@
 @props(['value','image'])
 
 <div>
-    <h2 class="category-header dark:text-gray-100 text-xl font-semibold mx-12 my-3 py-16 text-center cursor-pointer border border-indigo-500 rounded-md" id="{{$image}}">
+    <h2 class="category-header dark:text-gray-100 text-2xl font-semibold mx-12 my-3 py-16 text-center cursor-pointer border border-indigo-500 rounded-md" id="{{$image}}">
         {{ $value }}
     </h2>
-    <div class="category-content mx-12 my-3 p-2 dark:bg-gray-900 border rounded-md hidden">
+    <div class="category-content mx-12 my-3 p-2 dark:bg-gray-900 border border-gray-400 rounded-md hidden">
         {{ $slot }}
     </div>
 </div>
