@@ -44,6 +44,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('/exercices', [ExercicesController::class, 'show'])->name('exercices');
     Route::get('/shop', [ShopController::class, 'show'])->name('shop');
+    Route::get('/yourCart', [ShopController::class, 'showCart'])->name('cart');
     Route::get('/feedback', [FeedbackController::class, 'show'])->name('feedback');
     Route::post('/feedback', [FeedbackController::class, 'store'])->name('feedback.store');
     Route::get('/subscription', [SubscriptionController::class, 'show'])->name('subscription');
@@ -63,6 +64,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/back-workouts', [BackWorkoutController::class, 'index'])->name('back-workouts');
     Route::get('/glutes-workouts', [GlutesWorkoutController::class, 'index'])->name('glutes-workouts');
     Route::get('/hamstrings-workouts', [HamstringsWorkoutController::class, 'index'])->name('Hamstrings-workouts');
+});
+
+Route::middleware('admin')->group(function () {
+    Route::get('/shop/add-items', [ShopController::class, 'create'])->name('item.create');
+    Route::post('/shop/add-items', [ShopController::class, 'store'])->name('item.add');
 });
 
 require __DIR__.'/auth.php';
