@@ -1,70 +1,34 @@
 <x-app-layout>
-    <style>
-        /* Add CSS rules here */
-        .image {
-            text-align: center;
-            margin-top: 20px; /* Add some space between the header and the image */
-        }
-        
-        .image img {
-            display: inline-block; /* Ensures the image behaves as a block element */
-        }
-        
-        .lists-container {
-            margin: bottom 20px;
-            display: flex; 
-            justify-content: space-between; 
-            align-items: flex-start; 
-            margin-top: 20px;
-        }
-        .seconde-list{
-            margin-right:20%;
-            counter-reset: list-counter; /* Add this line to reset the counter */
-            padding-left: 20px; /* Add padding to create space between number and text */
-        }
-        
-        .seconde-list li::before {
-            content: counter(list-counter) ". "; /* Add a period and space after the counter */
-            counter-increment: list-counter; /* Add this line to increment the counter */
-        }
-        .first-list{
-            margin-left:20%;
-            counter-reset: list-counter; /* Add this line to reset the counter */
-            padding-left: 20px; /* Add padding to create space between number and text */
-        }
-        
-        .first-list li::before {
-            content: counter(list-counter) ". "; /* Add a period and space after the counter */
-            counter-increment: list-counter; /* Add this line to increment the counter */
-        }
-    </style>
-    
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
             {{ __('Workouts') }}
         </h2>
     </x-slot>
-    <div class="image">
+
+    <div class="py-12 flex justify-center inline-block">
         <img src="{{ asset('./images/body.jpg') }}" alt="Human Body">
     </div>
-    <div class="lists-container">
-        <ol class="text-white first-list">
-            <li><a  href="{{ route('shoulder-workouts') }}">Shoulders</a></li>
-            <li><a  href="{{ route('chest-workouts') }}">chest</a></li>
-            <li><a  href="{{ route('biceps-workouts') }}">Biceps</a></li>
-            <li><a  href="{{ route('abs-workouts') }}">Abs</a></li>
-            <li><a  href="{{ route('obliques-workouts') }}">Oblique</a></li>
-            <li><a  href="{{ route('quads-workouts') }}">Quads</a></li>
-            <li><a  href="{{ route('thighs-workouts') }}">Thighs</a></li>
-            <li><a  href="{{ route('calves-workouts') }}">Calves</a></li>
-        </ol>
-        <ol class="seconde-list text-white">
-            <li><a  href="{{ route('trapez-workouts') }}">Trapezius</a></li>
-            <li><a  href="{{ route('triceps-workouts') }}">Triceps</a></li>
-            <li><a  href="{{ route('back-workouts') }}">Midlle Back</a></li>
-            <li><a  href="{{ route('glutes-workouts') }}">Glutes</a></li>
-            <li><a  href="{{ route('Hamstrings-workouts') }}">Hamstrings</a></li>
-            <li><a  href="{{ route('calves-workouts') }}">Calves</a></li>
-        </ol>
+
+    <div class="pb-12 flex justify-center space-x-12 items-start text-md font-semibold">
+        <ul class="p-3 space-y-2 bg-white dark:bg-gray-800 shadow-sm rounded-lg">
+            <li><x-title class="text-xl text-center border-b border-gray-400">Front</x-title></li>
+            <li><x-nav-link href="{{ route('shoulder-workouts') }}">{{ __('1. Shoulders') }}</x-nav-link></li>
+            <li><x-nav-link href="{{ route('chest-workouts') }}">{{ __('2. Chest') }}</x-nav-link></li>
+            <li><x-nav-link href="{{ route('biceps-workouts') }}">{{ __('3. Biceps') }}</x-nav-link></li>
+            <li><x-nav-link href="{{ route('abs-workouts') }}">{{ __('4. Abs') }}</x-nav-link></li>
+            <li><x-nav-link href="{{ route('obliques-workouts') }}">{{ __('5. Oblique') }}</x-nav-link></li>
+            <li><x-nav-link href="{{ route('quads-workouts') }}">{{ __('6. Quads') }}</x-nav-link></li>
+            <li><x-nav-link href="{{ route('thighs-workouts') }}">{{ __('7. Thighs') }}</x-nav-link></li>
+            <li><x-nav-link href="{{ route('calves-workouts') }}">{{ __('8. Calves') }}</x-nav-link></li>
+        </ul>
+        <ul class="p-3 space-y-2 bg-white dark:bg-gray-800 shadow-sm rounded-lg">
+            <li><x-title class="text-xl text-center border-b border-gray-400">Rear</x-title></li>
+            <li><x-nav-link href="{{ route('trapez-workouts') }}">{{ __('1. Trapezius') }}</x-nav-link></li>
+            <li><x-nav-link href="{{ route('triceps-workouts') }}">{{ __('2. Triceps') }}</x-nav-link></li>
+            <li><x-nav-link href="{{ route('back-workouts') }}">{{ __('3. Back') }}</x-nav-link></li>
+            <li><x-nav-link href="{{ route('glutes-workouts') }}">{{ __('4. Glutes') }}</x-nav-link></li>
+            <li><x-nav-link href="{{ route('Hamstrings-workouts') }}">{{ __('5. Hamstrings') }}</x-nav-link></li>
+            <li><x-nav-link href="{{ route('calves-workouts') }}">{{ __('6. Calves') }}</x-nav-link></li>
+        </ul>
     </div>
 </x-app-layout>
