@@ -8,6 +8,6 @@ class ExercicesController extends Controller
 {
     public function show()
     {
-        return view('menu.exercices');
+        return view('menu.3d-model');
     }
 }
