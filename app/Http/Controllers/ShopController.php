@@ -14,7 +14,7 @@ class ShopController extends Controller
     }
     public function showCart()
     {
-        return view('layouts.cart');
+        return view('cart');
     }
     public function create()
     {
