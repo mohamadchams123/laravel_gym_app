@@ -20,7 +20,9 @@
                             <x-primary-button>{{ __('Submit Feedback') }}</x-primary-button>
                         </div>
                         <div class="flex items-center gap-4 pb-6">
-                            <x-primary-button type="button" id="showButton">{{ __('Show Feedbacks') }}</x-primary-button>
+                            <x-secondary-button onclick="document.getElementById('hidden-div').style.display = document.getElementById('hidden-div').style.display === 'none' ? 'block' : 'none';">
+                                {{ __('Show Feedbacks') }}
+                            </x-secondary-button>
                         </div>
                     </form>
                 </div>
@@ -39,26 +41,9 @@
                     </div>
                     @endforeach
                 @else
-                    <p class="flex justify-center items-center text-gray-100 m-3">There are no Feedbacks! Be the first one to participate.</p>
+                    <p class="flex justify-center items-center text-gray-400 m-3">There are no Feedbacks! Be the first one to participate.</p>
                 @endif
             </div>
         </div>
     </div>
-    
-    <script>
-        const showButton = document.getElementById('showButton');
-        const hiddenDiv = document.getElementById('hidden-div');
-
-        let isHidden = true;
-
-        showButton.addEventListener('click', () => {
-        if (isHidden) {
-            hiddenDiv.style.display = 'block';
-        } else {
-            hiddenDiv.style.display = 'none';
-        }
-            isHidden = !isHidden;
-        });
-    </script>
-
 </x-app-layout>

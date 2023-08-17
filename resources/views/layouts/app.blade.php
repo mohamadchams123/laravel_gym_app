@@ -8,21 +8,6 @@
         <title>{{ config('app.name', 'Laravel') }}</title>
         <style>
             html{ scroll-behavior:smooth; }
-            body {
-                margin: 0;
-                padding: 0;
-            }
-            #background-container {
-                /* position: fixed; */
-                top: 0;
-                left: 0;
-                z-index: -1; /* Place behind other content */
-                background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./images/app-background.jpeg');
-                background-repeat: no-repeat;
-                background-attachment: fixed; /* Stay fixed while scrolling */
-                background-position: center;
-                background-size: 100%;
-            }
         </style>
 
         <!-- Fonts -->
@@ -33,7 +18,7 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100 dark:bg-gray-900" id="background-container">
+        <div class="min-h-screen bg-gray-100 dark:bg-gray-900" style="top: 0; left: 0; z-index: -1; background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./images/app-background.jpeg'); background-repeat: no-repeat; background-attachment: fixed; background-position: center; background-size: cover;">
             @include('layouts.navigation')
 
             @if (isset($header))
