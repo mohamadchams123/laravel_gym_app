@@ -11,6 +11,7 @@
         }
         
         .lists-container {
+            margin: bottom 20px;
             display: flex; 
             justify-content: space-between; 
             align-items: flex-start; 
@@ -62,8 +63,8 @@
             <li><a  href="{{ route('triceps-workouts') }}">Triceps</a></li>
             <li><a  href="{{ route('back-workouts') }}">Midlle Back</a></li>
             <li><a  href="{{ route('glutes-workouts') }}">Glutes</a></li>
-            <li><a  href="{{ route('Hamstrings-workouts') }}"></a>Hamstrings</li>
-            <li><a  href="{{ route('calves-workouts') }}"></a>Calves</li>
+            <li><a  href="{{ route('Hamstrings-workouts') }}">Hamstrings</a></li>
+            <li><a  href="{{ route('calves-workouts') }}">Calves</a></li>
         </ol>
     </div>
 </x-app-layout>
