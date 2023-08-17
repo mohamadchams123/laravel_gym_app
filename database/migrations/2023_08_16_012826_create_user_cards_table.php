@@ -21,8 +21,8 @@ return new class extends Migration
         });
 
         // Set the auto-increment value to the highest existing id + 1
-        $maxId = DB::table('user_cards')->max('id');
-        DB::statement("ALTER TABLE user_cards AUTO_INCREMENT = " . ($maxId + 1));
+        // $maxId = DB::table('user_cards')->max('id');
+        // DB::statement("ALTER TABLE user_cards AUTO_INCREMENT = " . ($maxId + 1));
     }
 
     public function down()
