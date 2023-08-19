@@ -41,28 +41,20 @@ class ShopController extends Controller
     public function addToCart(Items $item)
     {
         $user = auth()->user();
-        
-        // Check if the item is already in the user's cart
-        $existingCartItem = Cart::where('user_id', $user->id)
-                                ->where('item_id', $item->id)
-                                ->first();
-
+        $quantity = request()->input('item-quantity');
+        $existingCartItem = Cart::where('user_id', $user->id)->where('item_id', $item->id)->first();
         if ($existingCartItem) {
-            // If the item is already in the cart, you might want to increase the quantity
             $existingCartItem->update([
-                'quantity' => $existingCartItem->quantity + 1,
+                'quantity' => $existingCartItem->quantity + $quantity,
             ]);
-        } else {
-            // If the item is not in the cart, create a new cart entry
+        }
+        else {
             Cart::create([
                 'user_id' => $user->id,
                 'item_id' => $item->id,
-                'quantity' => 1,
+                'quantity' => $quantity,
             ]);
         }
-        
         return redirect()->back();
     }
-
-
 }

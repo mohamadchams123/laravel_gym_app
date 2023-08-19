@@ -49,21 +49,20 @@ class User extends Authenticatable
         'subscription_end_date' => 'datetime',
         'password' => 'hashed',
     ];
-    // User.php
     public function feedback()
     {
         return $this->hasMany(Feedback::class);
     }
     public function userCards()
-{
-    return $this->hasMany(UserCard::class);
-}
-public function item()
-{
-    return $this->belongsTo(Items::class);
-}
-public function cart()
-{
-    return $this->belongsTo(Cart::class);
-}
+    {
+        return $this->hasMany(UserCard::class);
+    }
+    public function item()
+    {
+        return $this->hasMany(Items::class);
+    }
+    public function cart()
+    {
+        return $this->hasMany(Cart::class);
+    }
 }
