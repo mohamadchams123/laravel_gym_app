@@ -16,11 +16,13 @@
     </x-slot>
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="flex flex-wrap justify-center lg:grid lg:grid-cols-4 gap-10">
-                @foreach ($items as $item)
-                    <x-item-card :item="$item" />
-                @endforeach
-            </div>
+        <div class="flex flex-wrap justify-center lg:grid lg:grid-cols-4 gap-10">
+        @foreach ($items as $item)
+            <a href="{{ route('item.detail', ['item' => $item->id]) }}" class="block">
+                <x-item-card :item="$item" />
+            </a>
+        @endforeach
+        </div>            
         </div>
     </div>
 </x-app-layout>

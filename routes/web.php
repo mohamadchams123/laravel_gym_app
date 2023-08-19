@@ -37,6 +37,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/subscribe', [SubscriptionController::class, 'subscribe'])->name('subscribe');
     Route::delete('/unsubscribe', [SubscriptionController::class, 'unsubscribe'])->name('unsubscribe');
     Route::delete('/feedbacks/{feedback}', [FeedbackController::class, 'destroy'])->name('feedback.destroy');
+    Route::get('/item/{item}', [ShopController::class, 'showItemDetail'])->name('item.detail');
+    Route::post('/cart/add/{item}', [ShopController::class, 'addToCart'])->name('cart.add');
 
 });
 
