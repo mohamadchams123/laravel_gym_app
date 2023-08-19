@@ -44,7 +44,7 @@
                             <tr>
                                 <td><x-input-label for="image_path" :value="__('Item Image')" /></td>
                                 <td>
-                                    <x-text-input type="file" id="image_path" name="image_path" class="m-1 block w-full" required />
+                                    <x-text-input type="file" id="image_path" name="image_path" class="pl-1 m-1 block w-full" required />
                                     <x-input-error class="mt-2" :messages="$errors->get('image_path')" />
                                 </td>
                             </tr>
