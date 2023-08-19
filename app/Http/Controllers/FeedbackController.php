@@ -26,4 +26,14 @@ class FeedbackController extends Controller
         ]);
         return Redirect::back();
     }
+    public function destroy(Feedback $feedback)
+{
+    // Check if the authenticated user owns the feedback before deleting
+    if (auth()->user()->id === $feedback->user_id) {
+        $feedback->delete();
+    }
+
+    return redirect()->route('feedback'); // Replace with the appropriate route
+}
+
 }

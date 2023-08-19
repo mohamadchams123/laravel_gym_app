@@ -32,17 +32,25 @@
     <div class="py-12">
         <div class="max-w-2xl mx-auto sm:px-6 lg:px-8">
             <div class="p-3 justify-center items-center bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg text-white" style="display: none;" id="hidden-div">
-                @if(!$feedbacks->isEmpty())
-                    @foreach ($feedbacks as $feedback)
-                    <div class="border-b mb-5">
-                        <p class="text-xl font-semibold text-indigo-500">{{ $feedback->user->name }}</p>
-                        <p class="text-xs text-gray-400">Posted {{ $feedback->created_at->diffForHumans() }}</p>
-                        <p class="m-3 ml-0 text-gray-100">{{ $feedback->message }}</p>
-                    </div>
-                    @endforeach
-                @else
-                    <p class="flex justify-center items-center text-gray-400 m-3">There are no Feedbacks! Be the first one to participate.</p>
-                @endif
+            @if (!$feedbacks->isEmpty())
+            @foreach ($feedbacks as $feedback)
+            <div class="border-b mb-5">
+                <p class="text-xl font-semibold text-indigo-500">{{ $feedback->user->name }}</p>
+                <p class="text-xs text-gray-400">Posted {{ $feedback->created_at->diffForHumans() }}</p>
+                <p class="m-3 ml-0 text-gray-100">{{ $feedback->message }}</p>
+            @if ($feedback->user_id === auth()->user()->id) <!-- Check if the feedback belongs to the current user -->
+                <form action="{{ route('feedback.destroy', $feedback) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="text-red-500 hover:text-red-700" onclick="return confirm('Are you sure you want to delete your feedback');">{{ __('Delete') }}</button>
+                </form>
+            @endif
+        </div>
+    @endforeach
+@else
+    <p class="flex justify-center items-center text-gray-400 m-3">There are no Feedbacks! Be the first one to participate.</p>
+@endif
+
             </div>
         </div>
     </div>

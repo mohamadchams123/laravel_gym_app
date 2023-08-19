@@ -36,6 +36,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/subscription', [SubscriptionController::class, 'show'])->name('subscription');
     Route::post('/subscribe', [SubscriptionController::class, 'subscribe'])->name('subscribe');
     Route::delete('/unsubscribe', [SubscriptionController::class, 'unsubscribe'])->name('unsubscribe');
+    Route::delete('/feedbacks/{feedback}', [FeedbackController::class, 'destroy'])->name('feedback.destroy');
+
 });
 
 Route::middleware('admin')->group(function () {
