@@ -24,7 +24,7 @@
                             <x-text-input type="text" id="name" name="name" :value="$item->name" />
                             <x-input-label for="description" :value="__('Description:')" class="text-lg mt-3" />
                             <x-text-area-input id="description" name="description" rows="4" class="mt-1 block w-full">{{ $item->description }}</x-text-area-input>
-                            <x-input-label for="price" :value="__('Price:')" class="text-lg mt-3" />
+                            <x-input-label for="price" :value="__('Price: (in USD)')" class="text-lg mt-3" />
                             <x-text-input type="number" id="price" name="price" :value="$item->price" />
                             <x-input-label for="quantity" :value="__('Quantity:')" class="text-lg mt-3" />
                             <x-text-input type="number" id="quantity" name="quantity" min="1" :value="$item->quantity" />

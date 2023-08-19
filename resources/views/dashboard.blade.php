@@ -19,9 +19,20 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
-                    {{-- <h2 id="todo" class="font-semibold text-xl text-gray-900 dark:text-gray-200 pb-5 underline underline-offset-2">
-                        <a href="{{route('exercices')}}">{{ __('Learn New Exercices') }}</a>
-                    </h2> --}}
+                @admin
+                    <p id="todo" class="mb-5"><x-nav-link class="font-semibold text-xl" href="{{route('exercices')}}">
+                        {{ __('# Exercises') }}
+                    </x-nav-link></p>
+                    <p id="sh" class="mb-5 border-t pt-10 mt-10"><x-nav-link class="font-semibold text-xl" href="{{route('shop')}}">
+                        {{ __('# Manage Your Shop') }}
+                    </x-nav-link></p>
+                    <p id="sub" class="mb-5 border-t pt-10 mt-10"><x-nav-link class="font-semibold text-xl" href="{{route('subscription')}}">
+                        {{ __('# Check Your Gym Members') }}
+                    </x-nav-link></p>
+                    <p id="cm" class="mb-5 border-t pt-10 mt-10"><x-nav-link class="font-semibold text-xl" href="{{route('feedback')}}">
+                        {{ __('# Check The Latest Feedbacks On Your Gym') }}
+                    </x-nav-link></p>
+                @else
                     <p id="todo" class="mb-5"><x-nav-link class="font-semibold text-xl" href="{{route('exercices')}}">
                         {{ __('# Learn New Exercises') }}
                     </x-nav-link></p>
@@ -61,6 +72,7 @@
                         {{ __('# Give Us Your Feedback') }}
                     </x-nav-link></p>
                     <p>We value your input! Your feedback holds the power to shape the future of our gym app and enhance the experience for everyone. Whether it's a suggestion, a feature request, or simply sharing your thoughts, your voice matters. By providing us with your valuable insights, you're contributing to a community-driven platform that aims to meet your needs and exceed your expectations. Remember, your feedback not only helps us understand what's working but also highlights areas where we can improve. Together, we can create a gym app that truly resonates with you and enhances your fitness journey. Share your thoughts today and be a part of our mission to make every workout count!</p>
+                @endadmin
                 </div>
             </div>
         </div>
