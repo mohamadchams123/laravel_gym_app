@@ -22,8 +22,9 @@
                         <p class="text-lg font-bold my-2">${{ $item->price }}</p>
                         <form id="addToCartForm" action="{{ route('cart.add', ['item' => $item->id]) }}" method="POST">
                             @csrf
-                            <p class="text-lg font-semibold mb-6">Quantity: 
-                                <x-text-input type="number" name="item-quantity" />
+                            <p class="flex items-center mb-6">
+                                <x-input-label for="item-quantity" :value="__('Quantity:')" class="text-xl mr-2" />
+                                <x-text-input type="number" id="item-quantity" name="item-quantity" min="1" max="{{ $item->quantity }}" />
                             </p>
                             @if ($item->quantity === 0)
                                 <p class="text-red-500 text-md">This item is out of stock</p>
