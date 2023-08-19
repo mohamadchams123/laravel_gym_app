@@ -9,6 +9,20 @@
         <div class="max-w-xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="px-12 py-6 text-gray-900 dark:text-gray-100">
+                @admin
+                    @foreach ($users as $user)
+                    @if($user->email !=='admin@gym.com')
+                    <p class="text-xl text-gray-700 dark:text-gray-200 pb-6">
+                        <b><i>{{ $user->name }}</i></b> is
+                        @if ($user->subscription)
+                        <span class="text-green-500"> subscribed</span>
+                        @else
+                        <span class="text-red-500"> not subscribed</span>
+                        @endif
+                    </p>
+                    @endif
+                    @endforeach
+                @else
                     @if ($user->subscription)
                         <x-title class="text-xl">You are subscribed!</x-title>
                         <div class="flex justify-center">
@@ -87,6 +101,7 @@
                             </div>
                         </form>
                     @endif
+                @endadmin
                 </div>
             </div>
         </div>

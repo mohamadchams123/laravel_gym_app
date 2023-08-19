@@ -27,9 +27,17 @@ class SubscriptionController extends Controller
     }
     public function show()
     {
-        $user = User::find(auth()->user()->id);
-        $this->checkSubscriptionStatus($user);
-        return view('menu.subscription', compact('user'));
+        if(auth()->user()?->cannot('admin'))
+        {
+            $user = User::find(auth()->user()->id);
+            $this->checkSubscriptionStatus($user);
+            return view('menu.subscription', compact('user'));
+        }
+        else
+        {
+            $users = User::all();
+            return view('menu.subscription', compact('users'));
+        }
     }
     public function subscribe(Request $request)
     {

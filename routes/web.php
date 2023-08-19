@@ -45,6 +45,8 @@ Route::middleware('auth')->group(function () {
 Route::middleware('admin')->group(function () {
     Route::get('/shop/add-items', [ShopController::class, 'create'])->name('item.create');
     Route::post('/shop/add-items', [ShopController::class, 'store'])->name('item.add');
+    Route::post('/items/{item}/update', [ShopController::class, 'update'])->name('item.update');
+    Route::delete('/items/{item}', [ShopController::class, 'destroy'])->name('item.destroy');
 });
 
 require __DIR__.'/auth.php';

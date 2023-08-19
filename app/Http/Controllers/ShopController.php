@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Items;
 use Illuminate\Http\Request;
 use App\Models\Cart;
+use Symfony\Component\HttpFoundation\Response;
 
 class ShopController extends Controller
 {
@@ -15,6 +16,10 @@ class ShopController extends Controller
     }
     public function showCart()
     {
+        if(auth()->user()?->can('admin'))
+        {
+            abort(Response::HTTP_FORBIDDEN);
+        }
         return view('cart');
     }
     public function create()
@@ -24,7 +29,7 @@ class ShopController extends Controller
     public function store()
     {
         $attributes = request()->validate([
-            'name' => 'required|string',
+            'name' => 'required|string|max:255',
             'description' => 'required|string',
             'price' => 'required|numeric',
             'quantity' => 'required|integer', // Assuming 'quantity' is part of your form
@@ -41,20 +46,35 @@ class ShopController extends Controller
     public function addToCart(Items $item)
     {
         $user = auth()->user();
-        $quantity = request()->input('item-quantity');
         $existingCartItem = Cart::where('user_id', $user->id)->where('item_id', $item->id)->first();
         if ($existingCartItem) {
             $existingCartItem->update([
-                'quantity' => $existingCartItem->quantity + $quantity,
+                'quantity' => $existingCartItem->quantity + request()->input('item-quantity'),
             ]);
         }
         else {
             Cart::create([
                 'user_id' => $user->id,
                 'item_id' => $item->id,
-                'quantity' => $quantity,
+                'quantity' => request()->input('item-quantity'),
             ]);
         }
         return redirect()->back();
+    }
+    public function update(Request $request, Items $item)
+    {
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'required|string',
+            'price' => 'required|numeric',
+            'quantity' => 'required|integer',
+        ]);
+        $item->update($validatedData);
+        return redirect()->back();
+    }
+    public function destroy(Items $item)
+    {
+        $item->delete();
+        return redirect()->route('shop');
     }
 }

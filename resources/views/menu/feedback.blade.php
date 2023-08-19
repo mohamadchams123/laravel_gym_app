@@ -31,7 +31,7 @@
     </div>
     <div class="py-12">
         <div class="max-w-2xl mx-auto sm:px-6 lg:px-8">
-            <div class="p-3 justify-center items-center bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg text-white" style="display: none;" id="hidden-div">
+            <div class="p-3 justify-center items-center bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg" style="display: none;" id="hidden-div">
                 @if (!$feedbacks->isEmpty())
                     @foreach ($feedbacks as $feedback)
                         <div class="border-b border-gray-600 dark:border-gray-400 mb-5">
@@ -48,7 +48,7 @@
                         </div>
                     @endforeach
                 @else
-                    <p class="flex justify-center items-center text-gray-400 m-3">There are no Feedbacks! Be the first one to participate.</p>
+                    <p class="flex justify-center items-center text-gray-800 dark:text-gray-400 m-3">There are no Feedbacks! Be the first one to participate.</p>
                 @endif
             </div>
         </div>
