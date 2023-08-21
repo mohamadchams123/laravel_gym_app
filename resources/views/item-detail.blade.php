@@ -1,13 +1,20 @@
 <x-app-layout>
     <x-slot name="header">
-        <div class="flex items-center">
-            <a href="{{route('shop')}}">
-                <x-back-button />
-            </a>
-            <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-                {{ $item->name }}
-            </h2>
-        </div>
+        <div class="flex items-center justify-between">
+            <div class="flex items-center">
+                <a href="{{route('shop')}}">
+                    <x-back-button />
+                </a>
+                <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+                    {{ $item->name }}
+                </h2>
+            </div>
+            <div>
+                <x-link-button href="{{ route('cart') }}">
+                        {{ __('Your Cart') }} <x-shopping-cart />
+                </x-link-button>
+            </div>
+        </div> 
     </x-slot>
     <div class="py-12">
         <div class="max-w-4xl mx-auto sm:px-6 lg:px-8">

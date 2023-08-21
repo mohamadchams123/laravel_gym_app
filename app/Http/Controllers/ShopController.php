@@ -79,4 +79,15 @@ class ShopController extends Controller
         $item->delete();
         return redirect()->route('shop');
     }
+    public function removeFromCart(Cart $item)
+    {
+        $user = auth()->user();
+    
+        if ($user->id === $item->user_id) {
+            $item->delete();
+        }
+        return redirect()->route('cart'); // Redirect to the cart page
+    }
+
+
 }

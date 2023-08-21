@@ -18,7 +18,7 @@
                         <p class="text-gray-600 dark:text-gray-400 text-lg my-3">{{ $cartItem->items->description }}</p>
                         <p class="text-lg font-bold my-3">${{ $cartItem->items->price }}</p>
                         <p class="text-md mb-3">Quantity: {{ $cartItem->quantity }}</p>
-                        <form action="{{ route('cart.remove', ['item' => $cartItem->id]) }}" method="POST">
+                        <form action="{{ route('cart.remove', ['item' => $cartItem]) }}" method="POST">
                             @csrf
                             <x-danger-button>Remove From Cart</x-danger-button>
                         </form>
