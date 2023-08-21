@@ -21,6 +21,7 @@ class ShopController extends Controller
             abort(Response::HTTP_FORBIDDEN);
         }
         $cartItems = Cart::getCartItems();
+        // dd($cartItems);
         return view('cart', compact('cartItems'));
     }
     public function create()

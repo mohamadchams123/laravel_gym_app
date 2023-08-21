@@ -13,6 +13,6 @@ class Items extends Model
     protected $fillable = ['name', 'description', 'price', 'quantity', 'image_path'];
     public function carts()
     {
-        return $this->belongsToMany(Cart::class);
+        return $this->hasMany(Cart::class);
     }
 }
