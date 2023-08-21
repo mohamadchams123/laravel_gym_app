@@ -55,7 +55,7 @@ class User extends Authenticatable
     }
     public function userCards()
     {
-        return $this->hasOne(UserCard::class);
+        return $this->hasMany(UserCard::class);
     }
     public function cart()
     {
