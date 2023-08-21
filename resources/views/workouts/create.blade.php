@@ -4,7 +4,7 @@
     <title>Shoulder Workouts</title>
 </head>
 <body>
-    <form method="POST" action="{{ route('store-workout') }}">
+    <form method="POST" action="{{ route('shoulder-workouts') }}">
         @csrf
         <input type="text" name="category_name" placeholder="Category">
         <input type="text" name="exercise_name" placeholder="Exercise">

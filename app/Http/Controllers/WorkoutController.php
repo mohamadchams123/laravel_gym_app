@@ -18,18 +18,18 @@ class WorkoutController extends Controller
         return view('workouts.create');
     }
 
-    // public function store(Request $request)
-    // {
-    //     $workout = new Workout();
-    //     $workout->category_name = $request->input('category_name');
-    //     $workout->exercise_name = $request->input('exercise_name');
-    //     $workout->exercise_info = $request->input('exercise_info');
-    //     $workout->exercise_howto = $request->input('exercise_howto');
-    //     $workout->exercise_sr = $request->input('exercise_sr');
-    //     $workout->exercise_mistakes = $request->input('mistakes');
-    //     $workout->save();
+    public function store(Request $request)
+    {
+        $workout = new Workout();
+        $workout->category_name = $request->input('category_name');
+        $workout->exercise_name = $request->input('exercise_name');
+        $workout->exercise_info = $request->input('exercise_info');
+        $workout->exercise_howto = $request->input('exercise_howto');
+        $workout->exercise_sr = $request->input('exercise_sr');
+        $workout->exercise_mistakes = $request->input('mistakes');
+        $workout->save();
 
-    // }
+    }
 
     public function show($id)
     {
@@ -67,7 +67,7 @@ class WorkoutController extends Controller
         return redirect()->route('workouts.index')
                          ->with('success', 'Workout deleted successfully');
     }
-    public function store(Request $request)
+    public function shoulderWorkouts(Request $request)
 {
     $categoryName = $request->input('category_name');
     $exerciseName = $request->input('exercise_name');
@@ -104,6 +104,6 @@ class WorkoutController extends Controller
         'exercise_mistakes' => $mistakes,
     ]);
 
-    return redirect()->route('workouts.show', ['category' => $workout->category_name]);
+    return view('workouts.shoulder');
 }
 }
