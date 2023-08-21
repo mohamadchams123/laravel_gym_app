@@ -1,6 +1,9 @@
 <x-app-layout>
     <x-slot name="header">
-        <div class="flex justify-between items-center">
+        <div class="flex items-center">
+            <a href="{{route('shop')}}">
+                <x-back-button />
+            </a>
             <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
                 {{ __('Add New Items To The Shop') }}
             </h2>

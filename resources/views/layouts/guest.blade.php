@@ -18,7 +18,7 @@
         <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100 dark:bg-gray-900" style="background-image: url('../../images/background-image.jpeg'); background-size: cover; background-position: center; width: 100%; height: 400px;">
             <div>
                 <a href="/">
-                    <x-application-logo class="w-20 h-20" />
+                    <x-application-logo class="block h-28 w-28 text-gray-100 dark:text-gray-100" />
                 </a>
             </div>
 

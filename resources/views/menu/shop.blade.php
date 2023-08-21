@@ -6,11 +6,11 @@
             </h2>
             @admin
                 <x-link-button href="{{ route('item.create') }}">
-                    {{ __('Add New Items') }} <img src="/images/plus.svg" width="15" height="15" class="ml-3">
+                    {{ __('Add New Items') }} <x-plus-svg />
                 </x-link-button>
             @else
                 <x-link-button href="{{ route('cart') }}">
-                    {{ __('Your Cart') }} <img src="/images/shopping-cart.svg" width="20" height="20" class="ml-3">
+                    {{ __('Your Cart') }} <x-shopping-cart />
                 </x-link-button>
             @endadmin
         </div>

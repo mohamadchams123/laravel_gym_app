@@ -1,8 +1,8 @@
 <x-app-layout>
     <x-slot name="header">
         <div class="flex items-center">
-            <a href="{{route('shop')}}" class="bg-white dark:bg-white mr-3 rounded-2xl">
-                <img src="../../images/back-button.svg" width="30" height="30">
+            <a href="{{route('shop')}}">
+                <x-back-button />
             </a>
             <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
                 {{ $item->name }}
