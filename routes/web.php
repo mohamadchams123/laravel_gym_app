@@ -39,6 +39,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/feedbacks/{feedback}', [FeedbackController::class, 'destroy'])->name('feedback.destroy');
     Route::get('/item/{item}', [ShopController::class, 'showItemDetail'])->name('item.detail');
     Route::post('/cart/add/{item}', [ShopController::class, 'addToCart'])->name('cart.add');
+    Route::post('/cart/remove/{item}', [ShopController::class, 'removeFromCart'])->name('cart.remove');
+    Route::post('/checkout/{item}', [ShopController::class, 'checkout'])->name('checkout');
 
 });
 
