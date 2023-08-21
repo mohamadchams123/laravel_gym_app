@@ -6,7 +6,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\SubscriptionController;
-use App\Http\Controllers\WorkoutController;
 
 Route::get('/', function () {
     return view('dashboard');
@@ -42,8 +41,6 @@ Route::middleware('auth')->group(function () {
     Route::post('/cart/add/{item}', [ShopController::class, 'addToCart'])->name('cart.add');
     Route::post('/cart/remove/{item}', [ShopController::class, 'removeFromCart'])->name('cart.remove');
     Route::post('/checkout/{item}', [ShopController::class, 'checkout'])->name('checkout');
-    Route::post('/workouts', [WorkoutController::class, 'store'])->name('workouts.store');
-    Route::get('/workouts/{id}', [WorkoutController::class, 'show'])->name('workouts.show');
 
 });
 
@@ -52,10 +49,6 @@ Route::middleware('admin')->group(function () {
     Route::post('/shop/add-items', [ShopController::class, 'store'])->name('item.add');
     Route::post('/items/{item}/update', [ShopController::class, 'update'])->name('item.update');
     Route::delete('/items/{item}', [ShopController::class, 'destroy'])->name('item.destroy');
-    Route::resource('workouts', AdminWorkoutController::class);
-    Route::get('/add-workout', [WorkoutController::class, 'create'])->name('add-workout');
-    Route::post('/store-workout', [WorkoutController::class, 'store'])->name('store-workout');
 });
 
 require __DIR__.'/auth.php';
-
