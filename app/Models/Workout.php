@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Workout extends Model
 {
     use HasFactory;
-    protected $guarded = [];
     protected $casts = [
         'exercise_mistakes' => 'array',
     ];

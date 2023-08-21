@@ -29,6 +29,7 @@ class WorkoutController extends Controller
         $workout->exercise_mistakes = $request->input('mistakes');
         $workout->save();
 
+        return response()->json(['message' => 'Workout created successfully']);
     }
 
     public function show($id)
@@ -95,15 +96,13 @@ class WorkoutController extends Controller
         }
     }
 
-    Workout::create([
-        'category_name' => $categoryName,
-        'exercise_name' => $exerciseName,
-        'exercise_info' => $exerciseInfo,
-        'exercise_howto' => $exerciseHowTo,
-        'exercise_sr' => $exerciseSr,
-        'exercise_mistakes' => $mistakes,
+    return view('workouts.shoulder', [
+        'categoryName' => $categoryName,
+        'exerciseName' => $exerciseName,
+        'exerciseInfo' => $exerciseInfo,
+        'exerciseHowTo' => $exerciseHowTo,
+        'exerciseSr' => $exerciseSr,
+        'mistakes' => $mistakes,
     ]);
-
-    return view('workouts.shoulder');
 }
 }
