@@ -68,4 +68,41 @@ class WorkoutController extends Controller
         return redirect()->route('workouts.index')
                          ->with('success', 'Workout deleted successfully');
     }
+    public function shoulderWorkouts(Request $request)
+{
+    $categoryName = $request->input('category_name');
+    $exerciseName = $request->input('exercise_name');
+    $exerciseInfo = $request->input('exercise_info');
+    $exerciseHowTo = $request->input('exercise_howto');
+    $exerciseSr = $request->input('exercise_sr');
+    $mistakes = $request->input('mistakes', []);
+
+    // Ensure $mistakes is an array
+    if (!is_array($mistakes)) {
+        $mistakes = [];
+    }
+
+    // Ensure all mistake arrays have both 'name' and 'description' keys
+    foreach ($mistakes as &$mistake) {
+        if (!is_array($mistake)) {
+            $mistake = ['name' => '', 'description' => ''];
+        } else {
+            if (!isset($mistake['name'])) {
+                $mistake['name'] = '';
+            }
+            if (!isset($mistake['description'])) {
+                $mistake['description'] = '';
+            }
+        }
+    }
+
+    return view('workouts.shoulder', [
+        'categoryName' => $categoryName,
+        'exerciseName' => $exerciseName,
+        'exerciseInfo' => $exerciseInfo,
+        'exerciseHowTo' => $exerciseHowTo,
+        'exerciseSr' => $exerciseSr,
+        'mistakes' => $mistakes,
+    ]);
+}
 }

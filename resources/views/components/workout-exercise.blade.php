@@ -20,14 +20,7 @@
         <x-title class="text-lg my-3 text-gray-100 dark:text-gray-400">Common Mistakes</x-title>
         {{ $mistakes }}
     </div>
-    <div>
-        <x-title class="text-lg my-3 text-gray-100 dark:text-gray-400">Muscles Worked by the {{$name}}</x-title>
-        {{ $muscles }}
-    </div>
-    <div>
-        <x-title class="text-lg my-3 text-gray-100 dark:text-gray-400">Benefits</x-title>
-        {{ $benefits }}
-    </div>
+    
     <div class="flex justify-center border-b border-gray-400 py-8">
         <img src="./workouts-images/{{ $image }}" style="max-height: 200px; max-width: 100%;">
     </div>
