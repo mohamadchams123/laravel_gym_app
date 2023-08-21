@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class ExercicesController extends Controller
 {
-    public function show()
+    public function index()
     {
         return view('menu.exercises');
     }

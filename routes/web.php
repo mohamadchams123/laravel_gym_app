@@ -15,7 +15,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    Route::get('/exercices', [ExercicesController::class, 'show'])->name('exercices');
+    Route::get('/exercices', [ExercicesController::class, 'index'])->name('exercices');
     Route::get('/shoulder-workouts', [ExercicesController::class, 'shoulder'])->name('shoulder-workouts');
     Route::get('/chest-workouts', [ExercicesController::class, 'chest'])->name('chest-workouts');
     Route::get('/biceps-workouts', [ExercicesController::class, 'biceps'])->name('biceps-workouts');
