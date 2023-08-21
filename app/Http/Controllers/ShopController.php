@@ -20,7 +20,8 @@ class ShopController extends Controller
         {
             abort(Response::HTTP_FORBIDDEN);
         }
-        return view('cart');
+        $cartItems = Cart::getCartItems();
+        return view('cart', compact('cartItems'));
     }
     public function create()
     {
