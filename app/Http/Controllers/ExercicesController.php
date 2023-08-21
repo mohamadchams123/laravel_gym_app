@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Exercices;
 use Illuminate\Http\Request;
 
 class ExercicesController extends Controller
@@ -10,6 +11,31 @@ class ExercicesController extends Controller
     {
         return view('menu.exercises');
     }
+    public function create()
+    {
+        return view('menu.createWorkout');
+    }
+    public function store()
+    {
+        $image = request()->validate(['exercise_image' => 'image|mimes:jpeg,png,jpg,gif|max:2048']);
+        $image = request()->file('exercise_image')->store('workoutImages', 'public');
+        Exercices::create([
+            'category_name' => request()->input('category_name'),
+            'exercise_name' => request()->input('exercise_name'),
+            'exercise_info' => request()->input('exercise_info'),
+            'exercise_howto' => request()->input('exercise_howto'),
+            'exercise_sr' => request()->input('exercise_sr'),
+            'exercise_mistakes' => request()->input('exercise_mistakes', []),
+            'exercise_muscles' => request()->input('exercise_muscles', []),
+            'exercise_benefits' => request()->input('exercise_benefits', []),
+            'exercise_image' => $image,
+        ]);
+        return redirect()->route('exercices');
+    }
+
+
+
+    
     public function abs()
     {
         return view('workouts.abs');

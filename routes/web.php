@@ -49,6 +49,8 @@ Route::middleware('admin')->group(function () {
     Route::post('/shop/add-items', [ShopController::class, 'store'])->name('item.add');
     Route::post('/items/{item}/update', [ShopController::class, 'update'])->name('item.update');
     Route::delete('/items/{item}', [ShopController::class, 'destroy'])->name('item.destroy');
+    Route::get('/exercices/add-workouts', [ExercicesController::class, 'create'])->name('workout.create');
+    Route::post('/exercices/add-workouts', [ExercicesController::class, 'store'])->name('workout.store');
 });
 
 require __DIR__.'/auth.php';
