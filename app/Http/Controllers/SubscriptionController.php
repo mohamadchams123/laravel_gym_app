@@ -18,7 +18,6 @@ class SubscriptionController extends Controller
     }
     protected function userSubExpired(User $user)
     {
-        $user->userCards()->delete();
         $user->update([
             'subscription' => false,
             'subscription_start_date' => null,
@@ -66,10 +65,9 @@ class SubscriptionController extends Controller
         $userCard->save();
         return redirect()->route('subscription');
     }
-    public function unsubscribe(Request $request)
+    public function unsubscribe()
     {
         $user = User::find(auth()->user()->id);
-        $user->userCards()->delete();
         $user->update([
             'subscription' => false,
             'subscription_start_date' => null,

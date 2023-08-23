@@ -38,7 +38,7 @@
                             <p class="text-xl font-semibold text-indigo-600 dark:text-indigo-500">{{ $feedback->user->name }}</p>
                             <p class="text-xs text-gray-600 dark:text-gray-400">Posted {{ $feedback->created_at->diffForHumans() }}</p>
                             <p class="m-3 ml-0 text-gray-900 dark:text-gray-100">{{ $feedback->message }}</p>
-                            @if ($feedback->user_id === auth()->user()->id)
+                            @if ($feedback->user_id === auth()->user()->id || auth()->user()->can('admin'))
                                 <form action="{{ route('feedback.destroy', $feedback) }}" method="POST">
                                     @csrf
                                     @method('DELETE')

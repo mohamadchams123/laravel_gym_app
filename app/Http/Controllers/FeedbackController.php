@@ -28,7 +28,7 @@ class FeedbackController extends Controller
     }
     public function destroy(Feedback $feedback)
     {
-        if (auth()->user()->id === $feedback->user_id) {
+        if (auth()->user()->id === $feedback->user_id || auth()->user()->can('admin')) {
             $feedback->delete();
         }
         return redirect()->route('feedback');
