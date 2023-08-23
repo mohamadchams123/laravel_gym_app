@@ -33,9 +33,9 @@ class DatabaseSeeder extends Seeder
             'exercise_info' => '',
             'exercise_howto' => '',
             'exercise_sr' => '',
-            'exercise_mistakes' => '',
-            'exercise_muscles' => '',
-            'exercise_benefits' => '',
+            'exercise_mistakes' => [''],
+            'exercise_muscles' => [''],
+            'exercise_benefits' => [''],
             'exercise_image' => '',
         ]);
     }
