@@ -42,10 +42,7 @@ class SubscriptionController extends Controller
     {
         $request->validate([
             'subscription_start_date' => 'required|date',
-            'card_number' => 'required|digits:8|numeric',
-            'expiry_date' => 'required|date_format:m/Y|after:' . now(),
-            'cvv' => 'required|digits:3|numeric',
-            'cardholder_name' => 'required|string',
+            'selected_card' => 'required',
         ]);
         $subscriptionStartDate = Carbon::parse($request->input('subscription_start_date'));
         $subscriptionEndDate = $subscriptionStartDate->copy()->addDays(30); 
@@ -55,14 +52,6 @@ class SubscriptionController extends Controller
             'subscription_start_date' => $subscriptionStartDate,
             'subscription_end_date' => $subscriptionEndDate,
         ]);
-        $userCard = new UserCard([
-            'user_id' => $user->id,
-            'card_number' => $request->input('card_number'),
-            'expiry_date' => $request->input('expiry_date'),
-            'cvv' => $request->input('cvv'),
-            'cardholder_name' => $request->input('cardholder_name'),
-        ]);
-        $userCard->save();
         return redirect()->route('subscription');
     }
     public function unsubscribe()
