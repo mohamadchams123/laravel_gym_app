@@ -65,7 +65,7 @@ class DatabaseSeeder extends Seeder
                 'Builds a strong and well-defined chest.',
                 'Develops upper body pressing strength.',
             ],
-            'exercise_image' => 'bench_press.jpg',
+            'exercise_image' => '../../workouts-images/BP.jpeg',
         ]);
         \App\Models\Exercices::create([
             'category_name' => 'obliques',
@@ -85,7 +85,7 @@ class DatabaseSeeder extends Seeder
                 'Targets the oblique muscles for better waist definition.',
                 'Improves rotational core strength.',
             ],
-            'exercise_image' => 'russian_twist.jpg',
+            'exercise_image' => '../../workouts-images/RT.jpeg',
         ]);
         \App\Models\Exercices::create([
             'category_name' => 'abs',
@@ -105,7 +105,7 @@ class DatabaseSeeder extends Seeder
                 'Strengthens the core muscles.',
                 'Improves posture and stability.',
             ],
-            'exercise_image' => 'plank.jpg',
+            'exercise_image' => '../../workouts-images/P.jpeg',
         ]);
         \App\Models\Exercices::create([
             'category_name' => 'biceps',
@@ -125,7 +125,7 @@ class DatabaseSeeder extends Seeder
                 'Helps build bicep size and strength.',
                 'Improves arm aesthetics.',
             ],
-            'exercise_image' => 'barbell_bicep_curl.jpg',
+            'exercise_image' => '../../workouts-images/BC.jpeg',
         ]);
         \App\Models\Exercices::create([
             'category_name' => 'calves',
@@ -145,7 +145,7 @@ class DatabaseSeeder extends Seeder
                 'Builds and defines the calf muscles.',
                 'Improves ankle strength and stability.',
             ],
-            'exercise_image' => 'standing_calf_raise.jpg',
+            'exercise_image' => '../../workouts-images/SCRC.jpeg',
         ]);
         \App\Models\Exercices::create([
             'category_name' => 'thighs',
@@ -165,7 +165,7 @@ class DatabaseSeeder extends Seeder
                 'Targets and develops the muscles of the thighs.',
                 'Less stress on the lower back compared to squats.',
             ],
-            'exercise_image' => 'leg_press.jpg',
+            'exercise_image' => '../../workouts-images/LP.jpeg',
         ]);
         \App\Models\Exercices::create([
             'category_name' => 'quads',
@@ -185,7 +185,7 @@ class DatabaseSeeder extends Seeder
                 'Builds strong and powerful leg muscles.',
                 'Enhances lower body strength and stability.',
             ],
-            'exercise_image' => 'barbell_squat.jpg',
+            'exercise_image' => '../../workouts-images/BBS.jpeg',
         ]);
         \App\Models\Exercices::create([
             'category_name' => 'triceps',
@@ -205,7 +205,7 @@ class DatabaseSeeder extends Seeder
                 'Targets and sculpts the triceps muscles.',
                 'Helps in building upper body strength.',
             ],
-            'exercise_image' => 'tricep_dips.jpg',
+            'exercise_image' => '../../workouts-images/TD.jpeg',
         ]);
         \App\Models\Exercices::create([
             'category_name' => 'trapezius',
@@ -225,7 +225,7 @@ class DatabaseSeeder extends Seeder
                 'Targets the upper trapezius muscles for improved posture.',
                 'Helps in strengthening and stabilizing the upper back.',
             ],
-            'exercise_image' => 'barbell_shrug.jpg',
+            'exercise_image' => '../../workouts-images/BS.jpeg',
         ]);
         \App\Models\Exercices::create([
             'category_name' => 'back',
@@ -245,7 +245,7 @@ class DatabaseSeeder extends Seeder
                 'Builds overall back strength and muscle.',
                 'Engages the entire posterior chain.',
             ],
-            'exercise_image' => 'deadlift.jpg',
+            'exercise_image' => '../../workouts-images/D.jpeg',
         ]);
         \App\Models\Exercices::create([
             'category_name' => 'glutes',
@@ -265,7 +265,7 @@ class DatabaseSeeder extends Seeder
                 'Targets and shapes the glute muscles.',
                 'Helps in building hip strength and power.',
             ],
-            'exercise_image' => 'hip_thrust.jpg',
+            'exercise_image' => '../../workouts-images/HT.jpeg',
         ]);
         \App\Models\Exercices::create([
             'category_name' => 'hamstrings',
@@ -285,7 +285,7 @@ class DatabaseSeeder extends Seeder
                 'Targets and strengthens the hamstrings.',
                 'Improves hip hinge movement pattern.',
             ],
-            'exercise_image' => 'romanian_deadlift.jpg',
+            'exercise_image' => '../../workouts-images/RD.jpeg',
         ]);
                                                                                          
         
