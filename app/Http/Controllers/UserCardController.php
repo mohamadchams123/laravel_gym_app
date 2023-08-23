@@ -31,12 +31,18 @@ class UserCardController extends Controller
         $userCard->save();
         return redirect()->route('payments.create');
     }
-    public function destroy(UserCard $userCard)
+    public function destroy($id)
     {
-        if ($userCard->user_id !== auth()->user()->id) {
+        $userCard = UserCard::find($id);
+        
+        if (!$userCard || $userCard->user_id !== auth()->id()) {
             abort(403, 'Unauthorized');
         }
+    
         $userCard->delete();
-        return redirect()->back();
+        return redirect()->route('payments.create');
+        // Redirect or respond as needed
     }
+    
+
 }

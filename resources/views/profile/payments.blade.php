@@ -41,14 +41,14 @@
 </form>
 
 @hasCards
-<x-title>Your Cards</x-title>
-@foreach ($userCards as $userCard)
-    <form action="{{route('payments.destroy')}}" method="POST">
-    @csrf
-    @method('DELETE')
-    {{$userCard->card_number}}
-    <x-danger-button onclick="return confirm('Are you sure you want to remove this card?')">Remove</x-danger-button>
-    </form>
-@endforeach
-@endhasCards
+    <x-title>Your Cards</x-title>
+    @foreach ($userCards as $userCard)
+        <form action="{{ route('payments.destroy', $userCard->id) }}" method="POST">
+            @csrf
+            @method('DELETE')
+            <p class="text-white">Card number : {{$userCard->card_number }}</p><p class="text-white">CVV : {{ $userCard->cvv }}</p>
+            <x-danger-button onclick="return confirm('Are you sure you want to remove this card?')">Remove</x-danger-button>
+        </form>
+    @endforeach
+    @endhasCards
 </x-app-layout>

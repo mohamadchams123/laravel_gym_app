@@ -68,4 +68,5 @@ class SubscriptionController extends Controller
     {
         return redirect()->route('subscribe');
     }
+    
 }

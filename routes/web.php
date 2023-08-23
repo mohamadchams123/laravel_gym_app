@@ -32,7 +32,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/checkout/{item}', [ShopController::class, 'checkout'])->name('checkout');
     Route::get('/payments', [UserCardController::class, 'create'])->name('payments.create');
     Route::post('/payments/add', [UserCardController::class, 'store'])->name('payments.add');
-    Route::delete('/payments/remove', [UserCardController::class, 'destroy'])->name('payments.destroy');
+    Route::delete('/payments/remove/{id}', [UserCardController::class, 'destroy'])->name('payments.destroy');
 });
 
 Route::middleware('admin')->group(function () {

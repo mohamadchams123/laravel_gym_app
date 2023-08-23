@@ -50,9 +50,18 @@ class ShopController extends Controller
         $user = auth()->user();
         $existingCartItem = Cart::where('user_id', $user->id)->where('item_id', $item->id)->first();
         if ($existingCartItem) {
-            $existingCartItem->update([
-                'quantity' => $existingCartItem->quantity + request()->input('item-quantity'),
-            ]);
+            if( $existingCartItem->quantity > $existingCartItem->quantity + request()->input('item-quantity'))
+            {
+                $existingCartItem->update([
+                    'quantity' => $existingCartItem->quantity + request()->input('item-quantity'),
+                ]);
+            }
+            else
+            {
+                $existingCartItem->update([
+                    'quantity' => $existingCartItem->quantity + request()->input('item-quantity'),
+                ]);
+            }
         }
         else {
             Cart::create([

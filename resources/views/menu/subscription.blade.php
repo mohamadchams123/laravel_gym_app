@@ -58,30 +58,10 @@
                         <x-title class="text-xl mb-6">Get Your 30 Days Membership Right Now</x-title>
                         <form action="{{ route('subscribe') }}" method="POST">
                             @csrf
-                        @if ($hasCard)
-                            <p>You have a card</p>
-                                <label for="selected_card">Select a card:</label>
-                                <select name="selected_card" id="selected_card" class="text-black" style="color: black;">
-                                    @foreach ($userCards as $userCard)
-                                        <option value="{{ $userCard->id }}" class="text-black" style="color: black;">{{ $userCard->card_number }}</option>
-                                    @endforeach
-                                </select>
-                                <br>
                                 <div class="mb-6 flex items-center">
                                 <x-input-label for="subscription_start_date" :value="__('Choose your starting date:')" />
                                 <x-text-input type="date" name="subscription_start_date" id="subscription_start_date" class="m-1 block" required />
                                 </div>
-                                <div class="flex justify-between items-center">
-                                    <x-primary-button type="submit" id="use-selected-card-button" class="m-1">Use Selected Card</x-primary-button>
-                                    <x-primary-button type="submit" id="create-new-card-button" class="m-1">Create a new card</x-primary-button>
-                                </div>
-                            </form>
-                        @else
-                        
-                            <div class="mb-6 flex items-center">
-                                <x-input-label for="subscription_start_date" :value="__('Choose your starting date:')" />
-                                <x-text-input type="date" name="subscription_start_date" id="subscription_start_date" class="m-1 block" required />
-                            </div>
                         @hasCards
                         <div class="text-black dark:text-white">
                             <x-has-cards button_name="subscribe" />

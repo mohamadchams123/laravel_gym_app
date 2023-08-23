@@ -17,7 +17,7 @@
                         <x-title class="text-xl font-semibold">{{ $cartItem->items->name }}</x-title>
                         <p class="text-md my-3">Quantity: {{ $cartItem->quantity }}</p>
                         <x-link-button href="{{ route('item.detail', ['item' => $cartItem->id]) }}">
-                            {{ __('Chech The Item') }}
+                            {{ __('Check The Item') }}
                         </x-link-button>
                         <div class="flex justify-between items-center">
                         <form action="{{ route('cart.remove', ['item' => $cartItem->id]) }}" method="POST">
