@@ -71,13 +71,14 @@
                                     @endforeach
                                 </select>
                                 <br>
-                                <div class="mb-6 flex items-center">
-                                <x-input-label for="subscription_start_date" :value="__('Choose your starting date:')" />
-                                <x-text-input type="date" name="subscription_start_date" id="subscription_start_date" class="m-1 block" required />
-                                </div>
+                                
                                 <div class="flex justify-between items-center">
                                     <x-primary-button type="submit" id="use-selected-card-button" class="m-1">Use Selected Card</x-primary-button>
                                     <x-primary-button type="submit" id="create-new-card-button" class="m-1">Create a new card</x-primary-button>
+                                </div>
+                                <div class="mb-6 flex items-center">
+                                <x-input-label for="subscription_start_date" :value="__('Choose your starting date:')" />
+                                <x-text-input type="date" name="subscription_start_date" id="subscription_start_date" class="m-1 block" required />
                                 </div>
                             </form>
                         @else
