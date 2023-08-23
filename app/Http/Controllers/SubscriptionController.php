@@ -75,4 +75,8 @@ class SubscriptionController extends Controller
         ]);
         return redirect()->route('subscription');
     }
+    public function useSelectedCard(Request $request)
+    {
+        return redirect()->route('subscribe');
+    }
 }
