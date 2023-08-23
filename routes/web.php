@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\SubscriptionController;
+use App\Http\Controllers\UserCardController;
 
 Route::get('/', function () {
     return view('dashboard');
@@ -29,6 +30,9 @@ Route::middleware('auth')->group(function () {
     Route::post('/cart/add/{item}', [ShopController::class, 'addToCart'])->name('cart.add');
     Route::post('/cart/remove/{item}', [ShopController::class, 'removeFromCart'])->name('cart.remove');
     Route::post('/checkout/{item}', [ShopController::class, 'checkout'])->name('checkout');
+    Route::get('/payments', [UserCardController::class, 'create'])->name('payments.create');
+    Route::post('/payments/add', [UserCardController::class, 'store'])->name('payments.add');
+    Route::delete('/payments/remove', [UserCardController::class, 'destroy'])->name('payments.destroy');
 });
 
 Route::middleware('admin')->group(function () {

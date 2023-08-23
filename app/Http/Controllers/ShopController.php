@@ -88,6 +88,8 @@ class ShopController extends Controller
         }
         return redirect()->route('cart'); // Redirect to the cart page
     }
-
-
+    public function checkout()
+    {
+        
+    }
 }

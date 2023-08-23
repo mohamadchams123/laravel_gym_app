@@ -28,5 +28,17 @@ class AppServiceProvider extends ServiceProvider
         Blade::if('admin', function () {
             return request()->user()?->can('admin');
         });
+        Blade::directive('hasCards', function () {
+            return '<?php
+                $userCards = auth()->user()->userCards;
+                $hasCard = $userCards->isNotEmpty();
+                if ($hasCard):
+            ?>';
+        });
+        Blade::directive('endhasCards', function () {
+            return '<?php
+                endif;
+            ?>';
+        });
     }
 }

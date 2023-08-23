@@ -24,13 +24,26 @@
                             @csrf
                             <x-danger-button class="my-3">Remove From Cart</x-danger-button>
                         </form>
-                        <form action="{{ route('checkout', ['item' => $cartItem->id]) }}" method="POST">
-                            @csrf
-                            <x-primary-button>Buy</x-primary-button>
-                        </form>
                         </div>
                     </div>
                 @endforeach
+                <div>
+                    <form action="{{ route('checkout', ['item' => $cartItem->id]) }}" method="POST">
+                        @csrf
+                        <x-secondary-button>Checkout</x-secondary-button>
+                        @hasCards
+                        <div class="text-black dark:text-white">
+                            <x-has-cards button_name="subscribe" />
+                        </div>
+                        @else
+                        <div class="text-sm">
+                            <p>It looks like you didn't add any payment method yet.</p>
+                            <p class="mb-3">Please add your card information to be able to pay.</p>
+                            <x-link-button href="{{ route('payments.create') }}">Add Your Card</x-link-button>
+                        </div>
+                        @endhasCards
+                    </form>
+                </div>
             </div>
         </div>
     </div>
