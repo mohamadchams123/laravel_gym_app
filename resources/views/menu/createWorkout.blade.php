@@ -1,6 +1,6 @@
 <!-- berjaa bzabet l design baaden -->
 
-<form method="POST" action="{{ route('workout.store') }}">
+<form method="POST" action="{{ route('workout.store') }}" enctype="multipart/form-data">
     @csrf
     <input type="text" name="category_name" placeholder="Category">
     <input type="text" name="exercise_name" placeholder="Exercise">
@@ -10,8 +10,7 @@
 
     <div id="mistake-container">
         <div class="mistake">
-            <input type="text" name="exercise_mistakes[0][name]" placeholder="Mistake Name">
-            <input type="text" name="exercise_mistakes[0][description]" placeholder="Mistake Description">
+            <input type="text" name="exercise_mistakes[]" placeholder="Mistake">
         </div>
     </div>
 
@@ -19,8 +18,7 @@
 
     <div id="muscles-container">
         <div class="muscle">
-            <input type="text" name="exercise_muscles[0][name]" placeholder="Muscle Targeted">
-            <input type="text" name="exercise_muscles[0][description]" placeholder="Muscle Description">
+            <input type="text" name="exercise_muscles[]" placeholder="Muscle Targeted">
         </div>
     </div>
 
@@ -28,8 +26,7 @@
 
     <div id="benefits-container">
         <div class="benefit">
-            <input type="text" name="exercise_benefits[0][name]" placeholder="Exercise Benefit">
-            <input type="text" name="exercise_benefits[0][description]" placeholder="Benefit Description">
+            <input type="text" name="exercise_benefits[]" placeholder="Exercise Benefit">
         </div>
     </div>
 
@@ -66,8 +63,7 @@ document.getElementById('add-mistake').addEventListener('click', function() {
     var mistakeDiv = document.createElement('div');
     mistakeDiv.className = 'mistake';
     mistakeDiv.innerHTML = `
-        <input type="text" name="mistakes[][name]" placeholder="Mistake Name">
-        <input type="text" name="mistakes[][description]" placeholder="Mistake Description">
+        <input type="text" name="exercise_mistakes[]" placeholder="Mistake">
     `;
     container.appendChild(mistakeDiv);
 });

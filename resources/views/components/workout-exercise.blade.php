@@ -29,6 +29,6 @@
         {{ $benefits }}
     </div>
     <div class="flex justify-center border-b border-gray-400 py-8">
-        <img src="./workouts-images/{{ $image }}" style="max-height: 200px; max-width: 100%;">
+        <img src="../../storage/{{ $image }}" style="max-height: 200px; max-width: 100%;">
     </div>
 </div>

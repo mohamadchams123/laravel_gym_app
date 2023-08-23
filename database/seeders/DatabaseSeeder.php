@@ -27,6 +27,16 @@ class DatabaseSeeder extends Seeder
             'email' => 'admin@gym.com',
             'password'=>bcrypt('admin')
         ]);
-        
+        \App\Models\Exercices::create([
+            'category_name' => 'shoulders',
+            'exercise_name' => '',
+            'exercise_info' => '',
+            'exercise_howto' => '',
+            'exercise_sr' => '',
+            'exercise_mistakes' => '',
+            'exercise_muscles' => '',
+            'exercise_benefits' => '',
+            'exercise_image' => '',
+        ]);
     }
 }

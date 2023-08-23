@@ -15,77 +15,25 @@ class ExercicesController extends Controller
     {
         return view('menu.createWorkout');
     }
-    public function store()
+    public function store(Request $request)
     {
-        $image = request()->validate(['exercise_image' => 'image|mimes:jpeg,png,jpg,gif|max:2048']);
-        $image = request()->file('exercise_image')->store('workoutImages', 'public');
-        Exercices::create([
-            'category_name' => request()->input('category_name'),
-            'exercise_name' => request()->input('exercise_name'),
-            'exercise_info' => request()->input('exercise_info'),
-            'exercise_howto' => request()->input('exercise_howto'),
-            'exercise_sr' => request()->input('exercise_sr'),
-            'exercise_mistakes' => request()->input('exercise_mistakes', []),
-            'exercise_muscles' => request()->input('exercise_muscles', []),
-            'exercise_benefits' => request()->input('exercise_benefits', []),
-            'exercise_image' => $image,
-        ]);
+        $exercice = new Exercices();
+        $exercice->category_name = $request->input('category_name');
+        $exercice->exercise_name = $request->input('exercise_name');
+        $exercice->exercise_info = $request->input('exercise_info');
+        $exercice->exercise_howto = $request->input('exercise_howto');
+        $exercice->exercise_sr = $request->input('exercise_sr');
+        $exercice->exercise_mistakes = $request->input('exercise_mistakes');
+        $exercice->exercise_muscles = $request->input('exercise_muscles');
+        $exercice->exercise_benefits = $request->input('exercise_benefits');
+        $exercice->exercise_image = $request->input('exercise_image');
+        $exercice->exercise_image = $request->file('exercise_image')->store('exercicesImages', 'public');
+        $exercice->save();
         return redirect()->route('exercices');
     }
-
-
-
-    
-    public function abs()
+    public function show($category)
     {
-        return view('workouts.abs');
-    }
-    public function back()
-    {
-        return view('workouts.back');
-    }
-    public function biceps()
-    {
-        return view('workouts.biceps');
-    }
-    public function calves()
-    {
-        return view('workouts.calves');
-    }
-    public function chest()
-    {
-        return view('workouts.chest');
-    }
-    public function glutes()
-    {
-        return view('workouts.glutes');
-    }
-    public function hamstrings()
-    {
-        return view('workouts.hamstrings');
-    }
-    public function obliques()
-    {
-        return view('workouts.obliques');
-    }
-    public function quads()
-    {
-        return view('workouts.quads');
-    }
-    public function shoulder()
-    {
-        return view('workouts.shoulder');
-    }
-    public function thighs()
-    {
-        return view('workouts.thighs');
-    }
-    public function trapez()
-    {
-        return view('workouts.trapezius');
-    }
-    public function triceps()
-    {
-        return view('workouts.triceps');
+        $exercices = Exercices::where('category_name', $category)->get();
+        return view('workouts.'.$category, ['exercices' => $exercices]);
     }
 }
