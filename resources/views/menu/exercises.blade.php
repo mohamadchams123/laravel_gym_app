@@ -1,9 +1,14 @@
 <x-app-layout>
     <x-slot name="header">
         <div class="flex justify-between items-center">
+        <div class="flex items-center">
+            <a href="{{ route('dashboard') }}">
+                <x-back-button />
+            </a>
             <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
                 {{ __('Workouts') }}
             </h2>
+        </div>
             @admin
                 <x-link-button href="{{ route('workout.create') }}">
                     {{ __('Add A New Workout') }}
