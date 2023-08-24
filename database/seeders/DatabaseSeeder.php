@@ -22,13 +22,6 @@ class DatabaseSeeder extends Seeder
         ]);
 
         \App\Models\User::factory()->create([
-            'id' => 7,
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-            'password' => bcrypt('password')
-        ]);
-
-        \App\Models\User::factory()->create([
             'id' => 3,
             'name' => 'Another User',
             'email' => 'another@example.com',
@@ -64,7 +57,7 @@ class DatabaseSeeder extends Seeder
             'password'=>bcrypt('admin')
         ]);
 
-        \App\Models\Item::create([
+        \App\Models\Items::create([
             'name' => 'Whey Protein Powder',
             'description' => 'High-quality whey protein powder for muscle recovery and growth.',
             'price' => 29.99,
@@ -72,7 +65,7 @@ class DatabaseSeeder extends Seeder
             'image_path' => '../../images/whey_protein.jpeg',
         ]);
 
-        \App\Models\Item::create([
+        \App\Models\Items::create([
             'name' => 'Adjustable Dumbbells Set',
             'description' => 'A set of adjustable dumbbells with various weight plates for versatile workouts.',
             'price' => 149.99,
@@ -80,7 +73,7 @@ class DatabaseSeeder extends Seeder
             'image_path' => '../../images/dumbbells.jpeg',
         ]);
 
-        \App\Models\Item::create([
+        \App\Models\Items::create([
             'name' => 'Resistance Bands',
             'description' => 'A set of resistance bands for targeted muscle training and flexibility exercises.',
             'price' => 19.99,
@@ -88,7 +81,7 @@ class DatabaseSeeder extends Seeder
             'image_path' => '../../images/resistance_bands.jpeg',
         ]);
 
-        \App\Models\Item::create([
+        \App\Models\Items::create([
             'name' => 'Yoga Mat',
             'description' => 'High-quality yoga mat for comfortable floor exercises and stretching.',
             'price' => 24.99,
@@ -96,7 +89,7 @@ class DatabaseSeeder extends Seeder
             'image_path' => '../../images/yoga_mat.jpeg',
         ]);
 
-        \App\Models\Item::create([
+        \App\Models\Items::create([
             'name' => 'Treadmill',
             'description' => 'Motorized treadmill with various workout programs and incline options.',
             'price' => 799.99,
@@ -104,7 +97,7 @@ class DatabaseSeeder extends Seeder
             'image_path' => '../../images/treadmill.jpeg',
         ]);
 
-        \App\Models\Item::create([
+        \App\Models\Items::create([
             'name' => 'Kettlebell Set',
             'description' => 'Set of kettlebells in different weights for dynamic and functional workouts.',
             'price' => 69.99,
@@ -112,7 +105,7 @@ class DatabaseSeeder extends Seeder
             'image_path' => '../../images/kettlebells.jpeg',
         ]);
 
-        \App\Models\Item::create([
+        \App\Models\Items::create([
             'name' => 'Weight Bench',
             'description' => 'Adjustable weight bench for bench presses, incline, and decline exercises.',
             'price' => 129.99,
@@ -120,7 +113,7 @@ class DatabaseSeeder extends Seeder
             'image_path' => '../../images/weight_bench.jpeg',
         ]);
 
-        \App\Models\Item::create([
+        \App\Models\Items::create([
             'name' => 'Jump Rope',
             'description' => 'Durable jump rope for cardio workouts and improving coordination.',
             'price' => 9.99,
@@ -128,7 +121,7 @@ class DatabaseSeeder extends Seeder
             'image_path' => '../../images/jump_rope.jpeg',
         ]);
 
-        \App\Models\Item::create([
+        \App\Models\Items::create([
             'name' => 'Foam Roller',
             'description' => 'Foam roller for self-myofascial release and muscle recovery.',
             'price' => 14.99,
@@ -136,7 +129,7 @@ class DatabaseSeeder extends Seeder
             'image_path' => '../../images/foam_roller.jpeg',
         ]);
 
-        \App\Models\Item::create([
+        \App\Models\Items::create([
             'name' => 'Pull-Up Bar',
             'description' => 'Sturdy pull-up bar for upper body strength training and bodyweight exercises.',
             'price' => 34.99,
