@@ -97,8 +97,18 @@ class ShopController extends Controller
         }
         return redirect()->route('cart'); // Redirect to the cart page
     }
-    public function checkout()
+    public function checkout(Request $request)
     {
-        
+        $cartItems = $request->input('cartItems'); // Assuming it's an array of cart items
+
+        foreach ($cartItems as $cartItem) {
+            $item = Item::find($cartItem['id']); // Replace 'Item' with your actual model name
+            $item->quantity -= $cartItem['quantity'];
+            $item->save();
+        }
+
+        // Perform the checkout process, redirect, and return a response
     }
+
+
 }

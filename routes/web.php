@@ -29,7 +29,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/item/{item}', [ShopController::class, 'showItemDetail'])->name('item.detail');
     Route::post('/cart/add/{item}', [ShopController::class, 'addToCart'])->name('cart.add');
     Route::post('/cart/remove/{item}', [ShopController::class, 'removeFromCart'])->name('cart.remove');
-    Route::post('/checkout/{item}', [ShopController::class, 'checkout'])->name('checkout');
+    Route::post('/checkout', [ShopController::class, 'checkout'])->name('checkout');
     Route::get('/payments', [UserCardController::class, 'create'])->name('payments.create');
     Route::post('/payments/add', [UserCardController::class, 'store'])->name('payments.add');
     Route::delete('/payments/remove/{id}', [UserCardController::class, 'destroy'])->name('payments.destroy');
