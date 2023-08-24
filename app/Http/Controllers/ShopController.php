@@ -96,10 +96,9 @@ class ShopController extends Controller
         foreach ($cartItems as $cartItem) {
             $item = Items::find($cartItem['item_id']);
             if ($item) {
-                $newItemQuantity = $item->quantity - $cartItem['quantity'];
-                $item->quantity = max(0, $newItemQuantity);
+                $item->quantity = $item->quantity - $cartItem['quantity'];
                 $item->save();                
-                $cartItem->quantity = min($cartItem->quantity, $item->quantity);
+                $cartItem->quantity = 0;
                 $cartItem->save();
             }
         }        

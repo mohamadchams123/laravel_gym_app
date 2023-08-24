@@ -11,28 +11,28 @@
         </form>
         @endadmin
     </div>
-    <div>
-        <x-title class="text-lg my-3 text-gray-100 dark:text-gray-400">Info</x-title>
+    <div class="text-md">
+        <x-title class="text-xl my-3 text-gray-100 dark:text-gray-400">Info</x-title>
         {{ $info }}
     </div>
-    <div>
-        <x-title class="text-lg my-3 text-gray-100 dark:text-gray-400">How To Do It</x-title>
+    <div class="text-md">
+        <x-title class="text-xl my-3 text-gray-100 dark:text-gray-400">How To Do It</x-title>
         {{ $howTo }}
     </div>
-    <div>
-        <x-title class="text-lg my-3 text-gray-100 dark:text-gray-400">Sets and Reps</x-title>
+    <div class="text-md">
+        <x-title class="text-xl my-3 text-gray-100 dark:text-gray-400">Sets and Reps</x-title>
         {{ $setsReps }}
     </div>
-    <div>
-        <x-title class="text-lg my-3 text-gray-100 dark:text-gray-400">Common Mistakes</x-title>
+    <div class="text-md">
+        <x-title class="text-xl my-3 text-gray-100 dark:text-gray-400">Common Mistakes</x-title>
         {{ $mistakes }}
     </div>
-    <div>
-        <x-title class="text-lg my-3 text-gray-100 dark:text-gray-400">Muscles Worked by the {{$name}}</x-title>
+    <div class="text-md">
+        <x-title class="text-xl my-3 text-gray-100 dark:text-gray-400">Muscles Worked by the {{$name}}</x-title>
         {{ $muscles }}
     </div>
-    <div>
-        <x-title class="text-lg my-3 text-gray-100 dark:text-gray-400">Benefits</x-title>
+    <div class="text-md">
+        <x-title class="text-xl my-3 text-gray-100 dark:text-gray-400">Benefits</x-title>
         {{ $benefits }}
     </div>
     <div class="flex justify-center border-b border-gray-400 py-8">

@@ -69,21 +69,11 @@
                         <x-title class="text-xl mb-6">Get Your 30 Days Membership Right Now</x-title>
                         <form action="{{ route('subscribe') }}" method="POST">
                             @csrf
-                                <div class="mb-6 flex items-center">
-                                <x-input-label for="subscription_start_date" :value="__('Choose your starting date:')" />
-                                <x-text-input type="date" name="subscription_start_date" id="subscription_start_date" class="m-1 block" required />
-                                </div>
-                        @hasCards
-                        <div class="text-black dark:text-white">
-                            <x-has-cards button_name="subscribe" />
-                        </div>
-                        @else
-                        <div class="text-sm">
-                            <p>It looks like you didn't add any payment method yet.</p>
-                            <p class="mb-3">Please add your card information to be able to subscribe.</p>
-                            <x-link-button href="{{ route('payments.create') }}">Add Your Card</x-link-button>
-                        </div>
-                        @endhasCards
+                            <div class="mb-6 sm:flex items-center">
+                            <x-input-label for="subscription_start_date" :value="__('Choose your starting date:')" />
+                            <x-text-input type="date" name="subscription_start_date" id="subscription_start_date" class="m-1 block" required />
+                            </div>
+                            <x-has-cards value="subscribe" />
                         </form>
                     @endif
                 @endadmin

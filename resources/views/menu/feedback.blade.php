@@ -14,7 +14,7 @@
         <div class="max-w-2xl mx-auto">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="flex justify-center">
-                    <form action="{{ route('feedback.store') }}" method="post" class="w-1/2 space-y-6">
+                    <form action="{{ route('feedback.store') }}" method="post" class="sm:w-1/2 space-y-6">
                         @csrf
                         <div>
                             <x-input-label for="message" :value="__('Give us your feedback')" />
@@ -34,7 +34,7 @@
             </div>
         </div>
     </div>
-    <div class="py-12">
+    <div class="pb-12">
         <div class="max-w-2xl mx-auto sm:px-6 lg:px-8">
             <div class="p-3 justify-center items-center bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg" style="display: none;" id="hidden-div">
                 @if (!$feedbacks->isEmpty())

@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <div class="flex items-center">
-            <a href="{{ route('shop') }}">
+            <a href="{{route('shop')}}">
                 <x-back-button />
             </a>
             <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
@@ -16,7 +16,11 @@
                 @foreach ($cartItems as $cartItem)
                     <div class="p-6 border-b border-gray-200 dark:border-gray-600 text-gray-900 dark:text-gray-100">
                         <x-title class="text-xl font-semibold">{{ $cartItem->items->name }}</x-title>
-                        <p class="text-md my-3">Quantity: {{ $cartItem->quantity }}</p>
+                        @if ($cartItem->quantity)
+                            <p class="text-md my-3">Quantity: {{ $cartItem->quantity }}</p>
+                        @else
+                            <p class="text-md my-3">Thank You For Purchasing this item!</p>
+                        @endif
                         <x-link-button href="{{ route('item.detail', ['item' => $cartItem->item_id]) }}">
                             {{ __('Check The Item') }}
                         </x-link-button>
@@ -29,24 +33,17 @@
                     </div>
                 @endforeach
                 <div>
-                    <!-- Perform actions related to checkout or payment here -->
+                    <x-title class="text-xl font-semibold p-6 pb-0">Checkout</x-title>
                     <form action="{{ route('checkout')}}" method="POST">
                         @csrf
-                    @hasCards
-                    <div class="text-black dark:text-white">
-                        <x-has-cards button_name="Buy" />
-                    </div>
-                    @else
-                    <div class="text-sm">
-                        <p>It looks like you didn't add any payment method yet.</p>
-                        <p class="mb-3">Please add your card information to be able to pay.</p>
-                        <x-link-button href="{{ route('payments.create') }}">Add Your Card</x-link-button>
-                    </div>
-                    @endhasCards
+                        <x-has-cards value="buy" />
+                    </form>
                 </div>
                 @else
-                <p>You currently have nothing in your cart!</p>
-                <p>Check the store, we have cool stuff!</p>
+                <div class="text-center text-gray-800 dark:text-gray-400 p-3">
+                    <p>You currently have nothing in your cart!</p>
+                    <p>Check the store, we have cool stuff!</p>
+                </div>
                 @endif
             </div>
         </div>

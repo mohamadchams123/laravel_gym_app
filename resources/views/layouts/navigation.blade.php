@@ -149,9 +149,9 @@
                 <x-responsive-nav-link :href="route('profile.edit')">
                     {{ __('Profile') }}
                 </x-responsive-nav-link>
-                <x-dropdown-link :href="route('payments.create')">
+                <x-responsive-nav-link :href="route('payments.create')">
                     {{ __('Payments') }}
-                </x-dropdown-link>
+                </x-responsive-nav-link>
 
                 <!-- Authentication -->
                 <form method="POST" action="{{ route('logout') }}">
