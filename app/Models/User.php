@@ -61,4 +61,12 @@ class User extends Authenticatable
     {
         return $this->hasOne(Cart::class);
     }
+    public function scopeFilter($query, array $filters)
+    {
+        $query->when($filters['search'] ?? false, function($query, $search){
+            $query->where(fn($query)=>
+                $query->where('name','like','%'.$search.'%')
+                ->orWhere('email','like','%'.$search.'%'));
+        });
+    }
 }

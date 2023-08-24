@@ -34,8 +34,17 @@ class SubscriptionController extends Controller
         }
         else
         {
-            $users = User::all();
-            return view('menu.subscription', compact('users'));
+            $user = User::latest()->filter(request(['search']));
+            dd($user);
+            return view('menu.subscription', [
+                'users' => User::latest()->filter(request(['search']))
+            ]);
+
+            // return view('posts.index', [
+            //     'posts' => Post::latest()->filter(
+            //         request(['search', 'category', 'author'])
+            //     )->paginate(6)->withQueryString()
+            // ]);
         }
     }
     public function subscribe(Request $request)

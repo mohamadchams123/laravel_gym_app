@@ -10,6 +10,11 @@
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="px-6 py-6 text-gray-900 dark:text-gray-100">
                 @admin
+                <div>
+                    <form method="GET" action="{{ route('subscription') }}">
+                        <x-text-input type="text" name="search" placeholder="Search someone's name or email" class="bg-transparent font-semibold text-sm" value="{{request('search')}}" />
+                    </form>
+                </div>
                     @foreach ($users as $user)
                     @if($user->email !=='admin@gym.com')
                     <p class="text-xl text-gray-700 dark:text-gray-200 pb-6">
