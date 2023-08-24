@@ -1,5 +1,15 @@
 <x-app-layout>
-<x-title>Payment Details</x-title>
+    <x-slot name="header">
+        <div class="flex items-center">
+            <a href="{{ url()->previous() }}">
+                <x-back-button />
+            </a>
+            <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+                {{ __('Payment Details') }}
+            </h2>
+        </div>
+    </x-slot>
+
 <form action="{{ route('payments.add') }}" method="POST">
     @csrf
     <div class="flex justify-center">
