@@ -5,11 +5,16 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\UserCard;
 use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class UserCardController extends Controller
 {
     public function create()
     {
+        if (auth()->user()?->can('admin'))
+        {
+            abort(Response::HTTP_FORBIDDEN);
+        }
         return view('profile.payments');
     }
     public function store()

@@ -69,9 +69,12 @@
                         <x-dropdown-link :href="route('profile.edit')">
                             {{ __('Profile') }}
                         </x-dropdown-link>
+                        @admin
+                        @else
                         <x-dropdown-link :href="route('payments.create')">
                             {{ __('Payments') }}
                         </x-dropdown-link>
+                        @endadmin
 
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">
@@ -149,9 +152,12 @@
                 <x-responsive-nav-link :href="route('profile.edit')">
                     {{ __('Profile') }}
                 </x-responsive-nav-link>
+                @admin
+                @else
                 <x-responsive-nav-link :href="route('payments.create')">
                     {{ __('Payments') }}
                 </x-responsive-nav-link>
+                @endadmin
 
                 <!-- Authentication -->
                 <form method="POST" action="{{ route('logout') }}">
