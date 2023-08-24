@@ -26,27 +26,28 @@ class SubscriptionController extends Controller
     }
     public function show()
     {
-        if(auth()->user()?->cannot('admin'))
-        {
+        if (auth()->user()?->cannot('admin')) {
             $user = User::find(auth()->user()->id);
             $this->checkSubscriptionStatus($user);
             return view('menu.subscription', compact('user'));
-        }
-        else
-        {
-            $user = User::latest()->filter(request(['search']));
-            dd($user);
-            return view('menu.subscription', [
-                'users' => User::latest()->filter(request(['search']))
-            ]);
+        } else {
+            $searchQuery = request('search');
+            
+            $users = User::latest();
 
-            // return view('posts.index', [
-            //     'posts' => Post::latest()->filter(
-            //         request(['search', 'category', 'author'])
-            //     )->paginate(6)->withQueryString()
-            // ]);
+            if ($searchQuery) {
+                $users->where('name', 'LIKE', '%' . $searchQuery . '%')
+                    ->orWhere('email', 'LIKE', '%' . $searchQuery . '%');
+            }
+
+            $filteredUsers = $users->get();
+            
+            return view('menu.subscription', [
+                'users' => $filteredUsers
+            ]);
         }
     }
+
     public function subscribe(Request $request)
     {
         $request->validate([

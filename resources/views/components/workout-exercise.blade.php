@@ -1,8 +1,15 @@
-@props(['name','image'])
+@props(['name','image','id'])
 
 <div class="text-black dark:text-white">
-    <div>
+    <div class="flex justify-center items-center">
         <x-title class="text-center text-xl font-bold my-3 text-gray-100 dark:text-gray-400">{{ $name }}</x-title>
+        @admin
+        <form action="{{ route('workout.destroy', $id) }}" method="POST">
+            @csrf
+            @method('DELETE')
+            <x-danger-button onclick="return confirm('Are you sure you want to delete?');">Delete</x-danger-button>
+        </form>
+        @endadmin
     </div>
     <div>
         <x-title class="text-lg my-3 text-gray-100 dark:text-gray-400">Info</x-title>

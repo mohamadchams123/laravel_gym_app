@@ -1,6 +1,6 @@
 <x-workout-category name="Biceps">
     @foreach ($exercices as $exercice)
-        <x-workout-exercise name="{{$exercice->exercise_name}}" image="{{$exercice->exercise_image}}">
+        <x-workout-exercise name="{{$exercice->exercise_name}}" image="{{$exercice->exercise_image}}" id="{{$exercice->id}}">
             <x-slot name="info">
                 {{$exercice->exercise_info}}
             </x-slot>
