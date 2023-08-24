@@ -22,11 +22,129 @@ class DatabaseSeeder extends Seeder
         ]);
 
         \App\Models\User::factory()->create([
+            'id' => 7,
+            'name' => 'Test User',
+            'email' => 'test@example.com',
+            'password' => bcrypt('password')
+        ]);
+
+        \App\Models\User::factory()->create([
+            'id' => 3,
+            'name' => 'Another User',
+            'email' => 'another@example.com',
+            'password' => bcrypt('password123')
+        ]);
+
+
+        \App\Models\User::factory()->create([
+            'id' => 4,
+            'name' => 'John Doe',
+            'email' => 'john.doe@example.com',
+            'password' => bcrypt('secret')
+        ]);
+
+        \App\Models\User::factory()->create([
+            'id' => 5,
+            'name' => 'Jane Smith',
+            'email' => 'jane.smith@example.com',
+            'password' => bcrypt('test123')
+        ]);
+
+        \App\Models\User::factory()->create([
+            'id' => 6,
+            'name' => 'Alice Johnson',
+            'email' => 'alice@example.com',
+            'password' => bcrypt('mypassword')
+        ]);
+
+        \App\Models\User::factory()->create([
             'id' => 1,
             'name' => 'Gym Admin',
             'email' => 'admin@gym.com',
             'password'=>bcrypt('admin')
         ]);
+
+        \App\Models\Item::create([
+            'name' => 'Whey Protein Powder',
+            'description' => 'High-quality whey protein powder for muscle recovery and growth.',
+            'price' => 29.99,
+            'quantity' => 50,
+            'image_path' => '../../images/whey_protein.jpeg',
+        ]);
+
+        \App\Models\Item::create([
+            'name' => 'Adjustable Dumbbells Set',
+            'description' => 'A set of adjustable dumbbells with various weight plates for versatile workouts.',
+            'price' => 149.99,
+            'quantity' => 20,
+            'image_path' => '../../images/dumbbells.jpeg',
+        ]);
+
+        \App\Models\Item::create([
+            'name' => 'Resistance Bands',
+            'description' => 'A set of resistance bands for targeted muscle training and flexibility exercises.',
+            'price' => 19.99,
+            'quantity' => 30,
+            'image_path' => '../../images/resistance_bands.jpeg',
+        ]);
+
+        \App\Models\Item::create([
+            'name' => 'Yoga Mat',
+            'description' => 'High-quality yoga mat for comfortable floor exercises and stretching.',
+            'price' => 24.99,
+            'quantity' => 40,
+            'image_path' => '../../images/yoga_mat.jpeg',
+        ]);
+
+        \App\Models\Item::create([
+            'name' => 'Treadmill',
+            'description' => 'Motorized treadmill with various workout programs and incline options.',
+            'price' => 799.99,
+            'quantity' => 10,
+            'image_path' => '../../images/treadmill.jpeg',
+        ]);
+
+        \App\Models\Item::create([
+            'name' => 'Kettlebell Set',
+            'description' => 'Set of kettlebells in different weights for dynamic and functional workouts.',
+            'price' => 69.99,
+            'quantity' => 25,
+            'image_path' => '../../images/kettlebells.jpeg',
+        ]);
+
+        \App\Models\Item::create([
+            'name' => 'Weight Bench',
+            'description' => 'Adjustable weight bench for bench presses, incline, and decline exercises.',
+            'price' => 129.99,
+            'quantity' => 15,
+            'image_path' => '../../images/weight_bench.jpeg',
+        ]);
+
+        \App\Models\Item::create([
+            'name' => 'Jump Rope',
+            'description' => 'Durable jump rope for cardio workouts and improving coordination.',
+            'price' => 9.99,
+            'quantity' => 50,
+            'image_path' => '../../images/jump_rope.jpeg',
+        ]);
+
+        \App\Models\Item::create([
+            'name' => 'Foam Roller',
+            'description' => 'Foam roller for self-myofascial release and muscle recovery.',
+            'price' => 14.99,
+            'quantity' => 30,
+            'image_path' => '../../images/foam_roller.jpeg',
+        ]);
+
+        \App\Models\Item::create([
+            'name' => 'Pull-Up Bar',
+            'description' => 'Sturdy pull-up bar for upper body strength training and bodyweight exercises.',
+            'price' => 34.99,
+            'quantity' => 20,
+            'image_path' => '../../images/pull_up_bar.jpeg',
+        ]);
+
+
         \App\Models\Exercices::create([
             'category_name' => 'shoulders',
             'exercise_name' => 'Shoulder Press',
