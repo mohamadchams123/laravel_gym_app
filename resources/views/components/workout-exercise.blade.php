@@ -1,16 +1,18 @@
 @props(['name','image','id'])
 
 <div class="text-black dark:text-white">
-    <div class="flex justify-center items-center">
-        <x-title class="text-center text-xl font-bold my-3 text-gray-100 dark:text-gray-400">{{ $name }}</x-title>
-        @admin
-        <form action="{{ route('workout.destroy', $id) }}" method="POST">
+    @admin
+    <table class="text-right w-full">
+        <td class="w-1/2"><x-title class="text-xl font-bold my-3 text-gray-100 dark:text-gray-400">{{ $name }}</x-title></td>
+        <td class="w-1/2"><form action="{{ route('workout.destroy', $id) }}" method="POST" class="text-right">
             @csrf
             @method('DELETE')
             <x-danger-button onclick="return confirm('Are you sure you want to delete?');">Delete</x-danger-button>
-        </form>
-        @endadmin
-    </div>
+        </form></td>
+    </table>
+    @else
+    <x-title class="text-center text-xl font-bold my-3 text-gray-100 dark:text-gray-400">{{ $name }}</x-title>
+    @endadmin
     <div class="text-md">
         <x-title class="text-xl my-3 text-gray-100 dark:text-gray-400">Info</x-title>
         {{ $info }}

@@ -15,7 +15,7 @@
                 <form action="{{ route('item.add') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="flex justify-center">
-                        <table class="text-right mt-6">
+                        <table class="text-right m-6">
                            <tr>
                                 <td><x-input-label for="name" :value="__('Item Name')" /></td>
                                 <td>

@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <div class="flex justify-between items-center">
-        <div class="flex items-center">
+        <div class="flex items-center mr-6">
             <a href="{{ route('dashboard') }}">
                 <x-back-button />
             </a>
@@ -11,7 +11,7 @@
         </div>
             @admin
                 <x-link-button href="{{ route('workout.create') }}">
-                    {{ __('Add A New Workout') }}
+                    {{ __('Add A New Workout') }} <x-plus-svg />
                 </x-link-button>
             @endadmin
         </div>
