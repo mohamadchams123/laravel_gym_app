@@ -15,7 +15,7 @@ class UserCardController extends Controller
     public function store()
     {
         request()->validate([
-            'card_number' => 'required|digits:16|numeric',
+            'card_number' => 'required|regex:/^\d{4}-\d{4}-\d{4}-\d{4}$/',
             'expiry_date' => 'required|date_format:m/Y|after:' . now(),
             'cvv' => 'required|digits:3|numeric',
             'cardholder_name' => 'required|string',

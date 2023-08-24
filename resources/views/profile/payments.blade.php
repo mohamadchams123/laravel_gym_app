@@ -17,7 +17,7 @@
             <tr>
                 <td><x-input-label for="card_number" :value="__('Card Number')" /></td>
                 <td>
-                    <x-text-input type="text" id="card_number" name="card_number" placeholder="XXXX XXXX XXXX XXXX" class="m-1 block w-full" required pattern="\d{4} \d{4} \d{4} \d{4}" maxlength="8" />
+                    <x-text-input type="text" id="card_number" name="card_number" placeholder="XXXX-XXXX-XXXX-XXXX" class="m-1 block w-full" required pattern="\d{4}-\d{4}-\d{4}-\d{4}" maxlength="19" />
                     <x-input-error class="mt-2" :messages="$errors->get('card_number')" />
                 </td>
             </tr>
