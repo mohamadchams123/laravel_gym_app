@@ -13,7 +13,6 @@ class UserCard extends Model
         'cvv',
         'cardholder_name',
     ];
-
     public function user()
     {
         return $this->belongsTo(User::class);

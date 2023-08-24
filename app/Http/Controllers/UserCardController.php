@@ -15,7 +15,7 @@ class UserCardController extends Controller
     public function store()
     {
         request()->validate([
-            'card_number' => 'required|digits:8|numeric',
+            'card_number' => 'required|digits:16|numeric',
             'expiry_date' => 'required|date_format:m/Y|after:' . now(),
             'cvv' => 'required|digits:3|numeric',
             'cardholder_name' => 'required|string',
@@ -34,15 +34,10 @@ class UserCardController extends Controller
     public function destroy($id)
     {
         $userCard = UserCard::find($id);
-        
         if (!$userCard || $userCard->user_id !== auth()->id()) {
             abort(403, 'Unauthorized');
         }
-    
         $userCard->delete();
         return redirect()->route('payments.create');
-        // Redirect or respond as needed
     }
-    
-
 }

@@ -36,11 +36,9 @@ class ExercicesController extends Controller
         $exercices = Exercices::where('category_name', $category)->get();
         return view('workouts.'.$category, ['exercices' => $exercices]);
     }
-    public function destroy(Request $request, Exercices $workout)
+    public function destroy(Exercices $exercices)
     {
-        $workout->delete();
-        
+        $exercices->delete();
         return redirect()->route('exercices');
     }
-
 }

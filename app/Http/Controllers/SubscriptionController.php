@@ -26,28 +26,26 @@ class SubscriptionController extends Controller
     }
     public function show()
     {
-        if (auth()->user()?->cannot('admin')) {
+        if (auth()->user()?->cannot('admin'))
+        {
             $user = User::find(auth()->user()->id);
             $this->checkSubscriptionStatus($user);
             return view('menu.subscription', compact('user'));
-        } else {
+        }
+        else
+        {
             $searchQuery = request('search');
-            
             $users = User::latest();
-
             if ($searchQuery) {
                 $users->where('name', 'LIKE', '%' . $searchQuery . '%')
                     ->orWhere('email', 'LIKE', '%' . $searchQuery . '%');
             }
-
             $filteredUsers = $users->get();
-            
             return view('menu.subscription', [
                 'users' => $filteredUsers
             ]);
         }
     }
-
     public function subscribe(Request $request)
     {
         $request->validate([
@@ -74,9 +72,4 @@ class SubscriptionController extends Controller
         ]);
         return redirect()->route('subscription');
     }
-    public function useSelectedCard(Request $request)
-    {
-        return redirect()->route('subscribe');
-    }
-    
 }

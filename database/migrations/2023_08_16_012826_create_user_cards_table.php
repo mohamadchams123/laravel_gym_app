@@ -16,13 +16,8 @@ return new class extends Migration
             $table->string('cvv');
             $table->string('cardholder_name');
             $table->timestamps();
-
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
-
-        // Set the auto-increment value to the highest existing id + 1
-        // $maxId = DB::table('user_cards')->max('id');
-        // DB::statement("ALTER TABLE user_cards AUTO_INCREMENT = " . ($maxId + 1));
     }
 
     public function down()

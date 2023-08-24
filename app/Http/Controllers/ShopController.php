@@ -21,7 +21,6 @@ class ShopController extends Controller
             abort(Response::HTTP_FORBIDDEN);
         }
         $cartItems = Cart::getCartItems();
-        // dd($cartItems);
         return view('cart', compact('cartItems'));
     }
     public function create()
@@ -34,8 +33,8 @@ class ShopController extends Controller
             'name' => 'required|string|max:255',
             'description' => 'required|string',
             'price' => 'required|numeric',
-            'quantity' => 'required|integer', // Assuming 'quantity' is part of your form
-            'image_path' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Adjust max file size as needed
+            'quantity' => 'required|integer',
+            'image_path' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
         $attributes['image_path'] = request()->file('image_path')->store('itemsImages', 'public');
         Items::create($attributes);
@@ -86,11 +85,10 @@ class ShopController extends Controller
     public function removeFromCart(Cart $item)
     {
         $user = auth()->user();
-    
         if ($user->id === $item->user_id) {
             $item->delete();
         }
-        return redirect()->route('cart'); // Redirect to the cart page
+        return redirect()->route('cart');
     }
     public function checkout()
     {

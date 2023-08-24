@@ -12,7 +12,7 @@ class FeedbackController extends Controller
 {
     public function show()
     {
-        $feedbacks = Feedback::orderBy('created_at', 'desc')->get(); // Fetch the feedbacks from the database
+        $feedbacks = Feedback::orderBy('created_at', 'desc')->get();
         return view('menu.feedback', ['feedbacks' => $feedbacks]);
     }
     public function store()
