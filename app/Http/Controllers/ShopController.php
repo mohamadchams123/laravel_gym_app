@@ -48,26 +48,21 @@ class ShopController extends Controller
     public function addToCart(Items $item)
     {
         $user = auth()->user();
+        $requestedQuantity = request()->input('item-quantity');
         $existingCartItem = Cart::where('user_id', $user->id)->where('item_id', $item->id)->first();
         if ($existingCartItem) {
-            if( $existingCartItem->quantity > $existingCartItem->quantity + request()->input('item-quantity'))
-            {
-                $existingCartItem->update([
-                    'quantity' => $existingCartItem->quantity + request()->input('item-quantity'),
-                ]);
-            }
-            else
-            {
-                $existingCartItem->update([
-                    'quantity' => $existingCartItem->quantity + request()->input('item-quantity'),
-                ]);
-            }
+            $newCartQuantity = $existingCartItem->quantity + $requestedQuantity;
+            $maxAvailableQuantity = min($item->quantity, $newCartQuantity);
+            $existingCartItem->update([
+                'quantity' => $maxAvailableQuantity,
+            ]);
         }
         else {
+            $maxAvailableQuantity = min($item->quantity, $requestedQuantity);
             Cart::create([
                 'user_id' => $user->id,
                 'item_id' => $item->id,
-                'quantity' => request()->input('item-quantity'),
+                'quantity' => $maxAvailableQuantity,
             ]);
         }
         return redirect()->back();
@@ -97,18 +92,19 @@ class ShopController extends Controller
         }
         return redirect()->route('cart'); // Redirect to the cart page
     }
-    public function checkout(Request $request)
+    public function checkout()
     {
-        $cartItems = $request->input('cartItems'); // Assuming it's an array of cart items
-
+        $cartItems = Cart::getCartItems();
         foreach ($cartItems as $cartItem) {
-            $item = Item::find($cartItem['id']); // Replace 'Item' with your actual model name
-            $item->quantity -= $cartItem['quantity'];
-            $item->save();
-        }
-
-        // Perform the checkout process, redirect, and return a response
+            $item = Items::find($cartItem['item_id']);
+            if ($item) {
+                $newItemQuantity = $item->quantity - $cartItem['quantity'];
+                $item->quantity = max(0, $newItemQuantity);
+                $item->save();                
+                $cartItem->quantity = min($cartItem->quantity, $item->quantity);
+                $cartItem->save();
+            }
+        }        
+        return redirect()->route('cart');
     }
-
-
 }

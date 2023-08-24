@@ -10,9 +10,12 @@
                 </h2>
             </div>
             <div>
+                @admin
+                @else
                 <x-link-button href="{{ route('cart') }}">
                         {{ __('Your Cart') }} <x-shopping-cart />
                 </x-link-button>
+                @endadmin
             </div>
         </div> 
     </x-slot>
