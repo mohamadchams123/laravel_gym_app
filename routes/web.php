@@ -42,7 +42,7 @@ Route::middleware('admin')->group(function () {
     Route::delete('/items/{item}', [ShopController::class, 'destroy'])->name('item.destroy');
     Route::get('/add-workouts', [ExercicesController::class, 'create'])->name('workout.create');
     Route::post('/add-workouts', [ExercicesController::class, 'store'])->name('workout.store');
-    Route::delete('/workouts/{workout}', [ExercicesController::class, 'destroy'])->name('workout.destroy');
+    Route::delete('/workouts/{exercices}', [ExercicesController::class, 'destroy'])->name('workout.destroy');
 });
 
 require __DIR__.'/auth.php';
