@@ -1,9 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
     <div class="flex items-center">
-    <a href="{{ route('dashboard') }}">
-                <x-back-button />
-            </a>
+        <x-back-button />
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
             {{ __('Subscription') }}
         </h2>
