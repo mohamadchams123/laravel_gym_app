@@ -2,19 +2,19 @@
     @admin
     @else
     <x-slot name="header">
-        <div class="flex font-semibold text-xl leading-tight">
-            <x-nav-link href="#todo">
+        <div class="sm:flex font-semibold text-xl leading-tight">
+            <p><x-nav-link href="#todo" class="mb-2">
                 {{ __('Exercises') }}
-            </x-nav-link>
-            <x-nav-link href="#sh" class="ml-5">
+            </x-nav-link></p>
+            <p><x-nav-link href="#sh" class="sm:ml-5 mb-2">
                 {{ __('Shop') }}
-            </x-nav-link>
-            <x-nav-link href="#sub" class="ml-5">
+            </x-nav-link></p>
+            <p><x-nav-link href="#sub" class="sm:ml-5 mb-2">
                 {{ __('Subscription') }}
-            </x-nav-link>
-            <x-nav-link href="#cm" class="ml-5">
+            </x-nav-link></p>
+            <p><x-nav-link href="#cm" class="sm:ml-5 mb-2">
                 {{ __('Feedback') }}
-            </x-nav-link>
+            </x-nav-link></p>
         </div>
     </x-slot>
     @endadmin

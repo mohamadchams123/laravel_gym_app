@@ -11,7 +11,7 @@ class ShopController extends Controller
 {
     public function show()
     {
-        $items = Items::all();
+        $items = Items::orderBy('created_at', 'desc')->get();
         return view('menu.shop', ['items' => $items]);
     }
     public function showCart()

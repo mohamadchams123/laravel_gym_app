@@ -52,21 +52,19 @@
                     </table>
                 </form>
 
+                @hasCards
                 <x-title class="text-xl">Your Previous Cards</x-title>
                 <div class="text-gray-800 dark:text-gray-400">
-                    @hasCards
-                        @foreach ($userCards as $userCard)
-                            <form action="{{ route('payments.destroy', $userCard->id) }}" method="POST" class="space-y-3 border border-gray-300 dark:border-gray-700 rounded-md p-3 mt-6">
-                                @csrf
-                                @method('DELETE')
-                                <p>Card number : {{$userCard->card_number }}</p><p>CVV : {{ $userCard->cvv }}</p>
-                                <x-danger-button onclick="return confirm('Are you sure you want to remove this card?')">Remove</x-danger-button>
-                            </form>
-                        @endforeach
-                    @else
-                        <p>It looks like you didn't add any payment methods yet.</p>
-                    @endhasCards
+                    @foreach ($userCards as $userCard)
+                        <form action="{{ route('payments.destroy', $userCard->id) }}" method="POST" class="space-y-3 border border-gray-300 dark:border-gray-700 rounded-md p-3 mt-6">
+                            @csrf
+                            @method('DELETE')
+                            <p>Card number : {{$userCard->card_number }}</p><p>CVV : {{ $userCard->cvv }}</p>
+                            <x-danger-button onclick="return confirm('Are you sure you want to remove this card?')">Remove</x-danger-button>
+                        </form>
+                    @endforeach
                 </div>
+                @endhasCards
             </div>
         </div>
     </div>

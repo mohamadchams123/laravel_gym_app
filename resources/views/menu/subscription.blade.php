@@ -15,7 +15,7 @@
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="px-6 py-6 text-gray-900 dark:text-gray-100">
                 @admin
-                <div class="flex justify-center items-center mb-6">
+                <div class="flex justify-center items-center mb-12">
                     <form method="GET" action="{{ route('subscription') }}">
                         <x-text-input type="text" name="search" placeholder="Search someone's name or email" class="bg-transparent font-semibold text-sm" value="{{request('search')}}" />
                         <x-primary-button >Search</x-primary-button>
@@ -23,7 +23,7 @@
                 </div>
                     @foreach ($users as $user)
                     @if($user->email !=='admin@gym.com')
-                    <p class="text-xl text-gray-700 dark:text-gray-200 pb-6">
+                    <p class="text-xl text-gray-700 dark:text-gray-200 pb-6 mb-6 border-b border-gray-300 dark:border-gray-700">
                         <b><i>{{ $user->name }}</i></b> is
                         @if ($user->subscription)
                         <span class="text-green-500"> subscribed</span> since <time>{{ $user->subscription_start_date->format('d m Y') }}</time>

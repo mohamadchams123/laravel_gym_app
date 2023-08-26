@@ -24,6 +24,10 @@
         </div>
 
         <div>
+            @admin
+            <x-input-label for="email" :value="__('This is the unique Email for the gym admin and it can\'t be modified at this moment.')" />
+            <x-text-input id="email" name="email" type="email" class="mt-1 block w-full" :value="old('email', $user->email)" disabled autocomplete="username" />
+            @else
             <x-input-label for="email" :value="__('Email')" />
             <x-text-input id="email" name="email" type="email" class="mt-1 block w-full" :value="old('email', $user->email)" required autocomplete="username" />
             <x-input-error class="mt-2" :messages="$errors->get('email')" />
@@ -45,6 +49,7 @@
                     @endif
                 </div>
             @endif
+            @endadmin
         </div>
 
         <div class="flex items-center gap-4">
