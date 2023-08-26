@@ -24,7 +24,7 @@ class FeedbackController extends Controller
             'user_id'=>request()->user()->id,
             'message'=>request('message')
         ]);
-        return Redirect::back();
+        return Redirect::back()->with('status', 'feedback-sent');
     }
     public function destroy(Feedback $feedback)
     {

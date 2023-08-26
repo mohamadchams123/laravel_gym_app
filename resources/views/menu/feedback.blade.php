@@ -12,17 +12,26 @@
         <div class="max-w-2xl mx-auto">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="flex justify-center">
-                    <form action="{{ route('feedback.store') }}" method="post" class="sm:w-1/2 space-y-6">
+                    <form action="{{ route('feedback.store') }}" method="POST" class="sm:w-1/2 space-y-6">
                         @csrf
                         <div>
                             <x-input-label for="message" :value="__('Give us your feedback')" />
                             <x-text-area-input id="message" name="message" class="mt-1 block w-full" required autofocus />
                             <x-input-error class="mt-2" :messages="$errors->get('message')" />
                         </div>
-                        <div class="flex items-center gap-4">
+                        <div>
                             <x-primary-button>{{ __('Submit Feedback') }}</x-primary-button>
+                            @if (session('status') === 'feedback-sent')
+                                <p
+                                    x-data="{ show: true }"
+                                    x-show="show"
+                                    x-transition
+                                    x-init="setTimeout(() => show = false, 2000)"
+                                    class="text-sm text-gray-600 dark:text-gray-400"
+                                >{{ __('Your Feedback has been sent.') }}</p>
+                            @endif
                         </div>
-                        <div class="flex items-center gap-4 pb-6">
+                        <div class="pb-6">
                             <x-secondary-button onclick="document.getElementById('hidden-div').style.display = document.getElementById('hidden-div').style.display === 'none' ? 'block' : 'none';">
                                 {{ __('Show Feedbacks') }}
                             </x-secondary-button>
