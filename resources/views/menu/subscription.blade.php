@@ -36,8 +36,8 @@
                 @else
                     @if ($user->subscription)
                         <x-title class="text-xl">You are subscribed!</x-title>
-                        <div class="flex justify-center">
-                            <table class="text-center mt-6">
+                        <div class="flex justify-center text-center mt-6">
+                            <table class="border-separate border-spacing-y-3">
                                 <tr>
                                     <td>
                                         <x-title>Subscription Start Date:</x-title>
@@ -64,6 +64,14 @@
                                     </td>
                                 </tr>
                             </table>
+                        </div>
+                        <div class="mt-12 p-6 rounded-lg border border-gray-300 dark:border-gray-700">
+                            <p>
+                                Thank you for being a member in our gym! We would love to hear your
+                                <x-nav-link class="text-md underline" href="{{route('feedback')}}">
+                                    feedback.
+                                </x-nav-link>
+                            </p>
                         </div>
                     @else
                         <x-title class="text-xl mb-6">Get Your 30 Days Membership Right Now</x-title>

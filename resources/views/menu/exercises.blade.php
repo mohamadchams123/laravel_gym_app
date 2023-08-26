@@ -43,4 +43,23 @@
             <li><x-nav-link href="{{ route('exercices.show', ['category' => 'calves']) }}">{{ __('6. Calves') }}</x-nav-link></li>
         </ul>
     </div>
+    @admin
+    @else
+    <div class="pb-12">
+        <div class="max-w-xl mx-auto">
+            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="text-gray-900 dark:text-gray-100 p-6">
+                    <div class="p-6 rounded-lg border border-gray-300 dark:border-gray-700 text-center">
+                        <p>You can learn all these workouts and more at our gym.</p>
+                        <p>
+                            <x-nav-link class="text-md underline" href="{{route('subscription')}}">
+                                Get your membership
+                            </x-nav-link>right now, and discover what your body is capable of!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @endadmin
 </x-app-layout>
