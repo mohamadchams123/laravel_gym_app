@@ -20,17 +20,17 @@
                             <td>
                                 <x-text-input type="text" id="card_number" name="card_number" placeholder="XXXX-XXXX-XXXX-XXXX" class="m-1 block w-full" required pattern="\d{4}-\d{4}-\d{4}-\d{4}" maxlength="19" />
                                 <script>
-                                document.getElementById('card_number').addEventListener('input', function() {
-                                    let input = this.value.replace(/\D/g, '');
-                                    let formatted = '';
-                                    for (let i = 0; i < input.length; i++) {
-                                        if (i > 0 && i % 4 === 0) {
-                                            formatted += '-';
+                                    document.getElementById('card_number').addEventListener('input', function() {
+                                        let input = this.value.replace(/\D/g, '');
+                                        let formatted = '';
+                                        for (let i = 0; i < input.length; i++) {
+                                            if (i > 0 && i % 4 === 0) {
+                                                formatted += '-';
+                                            }
+                                            formatted += input[i];
                                         }
-                                        formatted += input[i];
-                                    }
-                                    this.value = formatted;
-                                });
+                                        this.value = formatted;
+                                    });
                                 </script>
                                 <x-input-error class="mt-2" :messages="$errors->get('card_number')" />
                             </td>
@@ -38,7 +38,20 @@
                         <tr>
                             <td><x-input-label for="expiry_date" :value="__('Expiry Date')" /></td>
                             <td>
-                                <x-text-input type="text" id="expiry_date" name="expiry_date" placeholder="MM/YYYY" class="m-1 block w-full" required pattern="(0[1-9]|1[0-2])\/\d{4}" title="Format: MM/YYYY" />
+                                <x-text-input type="text" id="expiry_date" name="expiry_date" placeholder="MM/YYYY" class="m-1 block w-full" required pattern="(0[1-9]|1[0-2])\/\d{4}" title="Format: MM/YYYY" maxlength="7" oninput="formatExpiryDate(this)" />
+                                <script>
+                                    function formatExpiryDate(input) {
+                                        let inputValue = input.value;
+                                        let numericValue = inputValue.replace(/\D/g, '');
+                                        if (numericValue.length > 6) {
+                                            numericValue = numericValue.substr(0, 6);
+                                        }
+                                        if (numericValue.length >= 2) {
+                                            numericValue = numericValue.slice(0, 2) + '/' + numericValue.slice(2);
+                                        }
+                                        input.value = numericValue;
+                                    }
+                                </script>
                                 <x-input-error class="mt-2" :messages="$errors->get('expiry_date')" />
                             </td>
                         </tr>
