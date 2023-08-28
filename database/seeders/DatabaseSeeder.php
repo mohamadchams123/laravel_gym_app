@@ -12,8 +12,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
-
+        \App\Models\User::factory()->create([
+            'id' => 1,
+            'name' => 'Gym Admin',
+            'email' => 'admin@gym.com',
+            'password'=>bcrypt('admin')
+        ]);
+        
         \App\Models\User::factory()->create([
             'id' => 2,
             'name' => 'Test User',
@@ -21,41 +26,7 @@ class DatabaseSeeder extends Seeder
             'password'=>bcrypt('password')
         ]);
 
-        \App\Models\User::factory()->create([
-            'id' => 3,
-            'name' => 'Another User',
-            'email' => 'another@example.com',
-            'password' => bcrypt('password123')
-        ]);
-
-
-        \App\Models\User::factory()->create([
-            'id' => 4,
-            'name' => 'John Doe',
-            'email' => 'john.doe@example.com',
-            'password' => bcrypt('secret')
-        ]);
-
-        \App\Models\User::factory()->create([
-            'id' => 5,
-            'name' => 'Jane Smith',
-            'email' => 'jane.smith@example.com',
-            'password' => bcrypt('test123')
-        ]);
-
-        \App\Models\User::factory()->create([
-            'id' => 6,
-            'name' => 'Alice Johnson',
-            'email' => 'alice@example.com',
-            'password' => bcrypt('mypassword')
-        ]);
-
-        \App\Models\User::factory()->create([
-            'id' => 1,
-            'name' => 'Gym Admin',
-            'email' => 'admin@gym.com',
-            'password'=>bcrypt('admin')
-        ]);
+        \App\Models\User::factory(5)->create();
 
         \App\Models\Items::create([
             'name' => 'Whey Protein Powder',

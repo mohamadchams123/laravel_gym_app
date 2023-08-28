@@ -19,6 +19,19 @@
                             <td><x-input-label for="card_number" :value="__('Card Number')" /></td>
                             <td>
                                 <x-text-input type="text" id="card_number" name="card_number" placeholder="XXXX-XXXX-XXXX-XXXX" class="m-1 block w-full" required pattern="\d{4}-\d{4}-\d{4}-\d{4}" maxlength="19" />
+                                <script>
+                                document.getElementById('card_number').addEventListener('input', function() {
+                                    let input = this.value.replace(/\D/g, '');
+                                    let formatted = '';
+                                    for (let i = 0; i < input.length; i++) {
+                                        if (i > 0 && i % 4 === 0) {
+                                            formatted += '-';
+                                        }
+                                        formatted += input[i];
+                                    }
+                                    this.value = formatted;
+                                });
+                                </script>
                                 <x-input-error class="mt-2" :messages="$errors->get('card_number')" />
                             </td>
                         </tr>
@@ -39,7 +52,7 @@
                         <tr>
                             <td><x-input-label for="cardholder_name" :value="__('Card Holder Name')" /></td>
                             <td>
-                                <x-text-input type="text" id="cardholder_name" name="cardholder_name" placeholder="Enter cardholder name" class="m-1 block w-full" required />
+                                <x-text-input type="text" id="cardholder_name" name="cardholder_name" placeholder="Enter cardholder name" class="m-1 block w-full" required oninput="this.value = this.value.toUpperCase();" />
                                 <x-input-error class="mt-2" :messages="$errors->get('cardholder_name')" />
                             </td>
                         </tr>
