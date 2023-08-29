@@ -2,7 +2,7 @@
     <x-slot name="header">
         <div class="flex items-center justify-between">
             <div class="flex items-center">
-                <x-back-button />
+                <x-back-button href="{{ route('shop') }}" />
                 <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
                     {{ $item->name }}
                 </h2>
@@ -72,7 +72,18 @@
                                     input.value = Math.max(currentValue - 1, minValue);
                                 }
                             </script>
-                            <x-primary-button>Add To Your Cart</x-primary-button>
+                            <div class="flex items-center gap-4">
+                                <x-primary-button>Add To Your Cart</x-primary-button>
+                                @if (session('status') === 'item-added')
+                                    <p
+                                        x-data="{ show: true }"
+                                        x-show="show"
+                                        x-transition
+                                        x-init="setTimeout(() => show = false, 2000)"
+                                        class="text-sm text-gray-600 dark:text-gray-400"
+                                    >{{ __('Added to you cart.') }}</p>
+                                @endif
+                            </div>
                         </form>
                         @endif
                         @endadmin

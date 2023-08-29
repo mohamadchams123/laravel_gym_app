@@ -64,7 +64,7 @@ class ShopController extends Controller
                 'quantity' => $maxAvailableQuantity,
             ]);
         }
-        return redirect()->back();
+        return redirect()->back()->with('status', 'item-added');
     }
     public function update(Request $request, Items $item)
     {
